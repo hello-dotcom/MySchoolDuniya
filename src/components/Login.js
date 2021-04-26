@@ -1,5 +1,6 @@
 import {Component} from 'react';
 import {withRouter} from 'react-router-dom';
+import avatar from '../images/avatar.png'
 import '../styles/login.css'
 class Login extends Component{
     constructor(props){
@@ -22,7 +23,7 @@ class Login extends Component{
             <div>
                 <form>
                     <div className="imgcontainer">
-                        <img src="../images/avatar.png" alt="Avatar" className="avatar" />
+                        <img src={avatar} alt="Avatar" className="avatar" />
                     </div>
                     <div className="container">
                         <label>Username : </label>

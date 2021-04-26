@@ -4,7 +4,8 @@ import {HashRouter as Router,Route,Switch} from 'react-router-dom'
 import Home from './components/Home';
 import {Component} from 'react'
 import Student from './components/Student';
-
+import Login from './components/Login';
+import Upload from './components/Upload';
 
 class App extends Component {
   render(){
@@ -34,6 +35,12 @@ class App extends Component {
           </Route>
           <Route exact path="/student">
             <Student></Student>
+          </Route>
+          <Route exact path="/login">
+            <Login></Login>
+          </Route>
+          <Route exact path="/upload">
+            <Upload></Upload>
           </Route>
         </Switch>
       </div>

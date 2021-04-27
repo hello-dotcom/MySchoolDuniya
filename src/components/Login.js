@@ -20,7 +20,6 @@ class Login extends Component{
     }
     render(){
         return (
-            <div>
                 <form>
                     <div className="imgcontainer">
                         <img src={avatar} alt="Avatar" className="avatar" />
@@ -50,13 +49,9 @@ class Login extends Component{
                         <div className="container">
                         <span className="psw">Forgot <a href="/">password?</a></span>
                         </div>
-                    </center>
-                    
+                    </center>  
                 </form>
-                <center>
-                        <button onClick={()=>this.props.history.goBack()}>Back</button>
-                    </center>
-            </div>
+
         )
     }
 }

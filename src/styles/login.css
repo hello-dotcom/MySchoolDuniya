@@ -53,6 +53,24 @@ span.psw {
   float: none;
 }
 
+@media screen and (max-width: 360px) {
+  form {
+    width: 100%;
+  }
+  span.psw {
+    display: inline;
+    float: none;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    display: block;
+    border: 2px;
+    box-sizing: border-box;
+  }
+}
 @media screen and (max-width: 420px) {
   form {
     width: 100%;
@@ -60,5 +78,14 @@ span.psw {
   span.psw {
     display: inline;
     float: none;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    display: block;
+    border: 2px;
+    box-sizing: border-box;
   }
 }

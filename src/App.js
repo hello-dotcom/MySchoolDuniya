@@ -7,6 +7,7 @@ import Student from './components/Student';
 import Login from './components/Login';
 import Upload from './components/Upload';
 import AddStudent from './components/AddStudent';
+import AddTeacher from './components/AddTeacher';
 
 class App extends Component {
   render(){
@@ -45,6 +46,9 @@ class App extends Component {
           </Route>
           <Route exact path="/addstudent">
             <AddStudent></AddStudent>
+          </Route>
+          <Route exact path="/addteacher">
+            <AddTeacher></AddTeacher>
           </Route>
         </Switch>
       </div>

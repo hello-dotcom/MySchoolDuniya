@@ -11,6 +11,7 @@ import Student from './components/Student';
 import Login from './components/Login';
 import Upload from './components/Upload';
 import AddStudent from './components/AddStudent';
+import AddTeacher from './components/AddTeacher';
 
 function App() {
 	return (
@@ -33,6 +34,9 @@ function App() {
 				</Route>
 				<Route path="/addStudent" component={AddStudent}>
 					<AddStudent></AddStudent>
+				</Route>
+				<Route path="/addteacher" component={AddTeacher}>
+					<AddTeacher></AddTeacher>
 				</Route>
 			</Switch>
 		</Router>

@@ -3,7 +3,13 @@ Body {
 }
 .container {
   padding: 25px;
-  background-color: lightblue;
+  margin-top: 50px;
+  background-color: rgb(171, 58, 194);
+  width:500px;
+}
+label {
+  margin-top: 20px;
+  text-align: right;
 }
 .btncontainer {
   display: flex;
@@ -31,7 +37,8 @@ button {
   cursor: pointer;
   align-content: center;
 }
-form {
+form{
+  margin-left:0vh;
   border: 3px solid #f1f1f1;
   width: 40%;
   margin: 0 auto;

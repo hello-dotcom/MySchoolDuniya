@@ -11,7 +11,9 @@ class AddStudent extends Component{
             email:"",
             password:"",
             class:"",
-            dob:"",            
+            dob:"", 
+            phoneno:"",
+            address:"",           
         }
     }
     signup = ()=>{

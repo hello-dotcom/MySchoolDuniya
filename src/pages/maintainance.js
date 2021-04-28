@@ -1,5 +1,5 @@
 import React from 'react';
-import Work from '../components/Work';
+import Home from '../components/Home';
 const Maintainance = () => {
 	return (
 		<div
@@ -11,7 +11,7 @@ const Maintainance = () => {
 			}}
 		>
 			<h1>Maintainance Work Station</h1>
-			<Work></Work>
+			<Home></Home>
 		</div>
 	);
 };

@@ -5,11 +5,7 @@ Body {
   padding: 10px;
   background-color: lightblue;
 }
-form {
-  border: 3px solid #f1f1f1;
-  width: 40%;
-  margin: 0 auto;
-}
+
 label {
   font-size: medium;
 }
@@ -39,10 +35,15 @@ button {
   cursor: pointer;
   align-content: center;
 }
+.btncontainer {
+  display: flex;
+  justify-content: center;
+  background-color: lightblue;
+  align-items: center;
+  height: auto;
+}
+
 @media screen and (max-width: 360px) {
-  form {
-    width: 100%;
-  }
   input[type="text"],
   input[type="password"] {
     width: 100%;
@@ -54,9 +55,6 @@ button {
   }
 }
 @media screen and (max-width: 420px) {
-  form {
-    width: 100%;
-  }
   input[type="text"],
   input[type="password"] {
     width: 100%;

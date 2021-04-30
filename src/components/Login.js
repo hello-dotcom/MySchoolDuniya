@@ -89,7 +89,7 @@ class Login extends Component {
 				<div className="imgcontainer">
 					<img src={avatar} alt="Avatar" className="avatar" />
 				</div>
-				<div className="">
+				 {/* <div className=""> */}
 					<div className="row">
 						<label className="col-4">Username : </label>
 						<input
@@ -120,7 +120,7 @@ class Login extends Component {
 							Forgot <a href="/">password?</a>
 						</span>
 					</div>
-				</div>
+				{/* </div> */}
 			</div>
 		);
 	}

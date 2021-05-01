@@ -27,9 +27,7 @@ class AddTeacher extends Component{
     }
     render(){
         return (
-            <div>
-                <form> 
-                    <div className="container">
+            <div className="container">
                     <center><h2>Add Teacher Form</h2></center>
                     <input
                         type="text"
@@ -97,15 +95,12 @@ class AddTeacher extends Component{
                         id="address"
                         required
                         />
-                        
                     
-                    </div>
                     <div className="btncontainer">
                         <button type="submit" onClick={()=>this.signup()}>Sign up</button>
-                    </div>    
-                </form> 
-
-            </div>
+                    </div>  
+            </div>  
+ 
         )
     }
 }

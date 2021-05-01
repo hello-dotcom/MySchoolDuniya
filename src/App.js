@@ -14,6 +14,7 @@ import AddStudent from './components/AddStudent';
 import AddTeacher from './components/AddTeacher';
 import AdmHome from './components/AdmHome';
 
+
 function App() {
 	return (
 		<Router>

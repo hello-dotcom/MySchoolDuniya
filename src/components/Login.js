@@ -40,6 +40,7 @@ class Login extends Component {
 						localStorage.setItem('token', 'Bearer ' + res.token);
 						if (res.output.role==='Admin') {
 							localStorage.setItem('profile',JSON.stringify(res.output));
+							localStorage.setItem('role',res.output.role);
 							this.props.history.push('/home1');
 						} else {
 							this.props.hisotry.push('/upload');

@@ -32,7 +32,7 @@ class Home extends Component {
 					}}
 					className="btn btn-success"
 				>
-					Login
+					Adm Login
 				</button>
 				<button
 					onClick={() => this.props.history.push('/upload')}

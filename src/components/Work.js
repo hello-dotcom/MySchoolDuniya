@@ -28,10 +28,13 @@ class Work extends Component {
 					goto Student
 				</button>
 				<button
-					onClick={() => this.props.history.push('/login')}
+					onClick={() => {
+						localStorage.setItem('as','admin')
+						this.props.history.push('/login')}}
+					
 					className="btn btn-success"
 				>
-					Login
+					Admin Login
 				</button>
 				<button
 					onClick={() => this.props.history.push('/upload')}

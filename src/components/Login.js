@@ -30,15 +30,17 @@ class Login extends Component {
 			})
 				.then((res) => res.json())
 				.then((res) => {
+					
 					if (res.status === 400) {
 						alert(res.message);
 					} else if (res.status === 500) {
 						alert('Internal system error');
 					} else if (res.status === 200) {
 						alert(res.message);
-						localStorage.setItem('token', 'Bearer' + res.token);
-						if (localStorage.getItem('as') == 'admin') {
-							this.props.history.push('/addteacher');
+						localStorage.setItem('token', 'Bearer ' + res.token);
+						if (res.output.role==='Admin') {
+							localStorage.setItem('profile',JSON.stringify(res.output));
+							this.props.history.push('/home1');
 						} else {
 							this.props.hisotry.push('/upload');
 						}

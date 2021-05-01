@@ -12,6 +12,7 @@ import Login from './components/Login';
 import Upload from './components/Upload';
 import AddStudent from './components/AddStudent';
 import AddTeacher from './components/AddTeacher';
+import AdmHome from './components/AdmHome';
 
 function App() {
 	return (
@@ -37,6 +38,9 @@ function App() {
 				</Route>
 				<Route path="/addteacher" component={AddTeacher}>
 					<AddTeacher></AddTeacher>
+				</Route>
+				<Route exact path="/home1">
+					<AdmHome></AdmHome>
 				</Route>
 			</Switch>
 		</Router>

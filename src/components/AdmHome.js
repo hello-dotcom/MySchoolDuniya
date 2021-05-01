@@ -3,6 +3,8 @@ import {withRouter} from 'react-router-dom'
 import axios from 'axios';
 import '../styles/admHome.css'
 import {API_URL} from '../config/config'
+import AddTeacher from './AddTeacher';
+import AddStudent from './AddStudent';
 
 class AdmHome extends Component {
     constructor(props) {
@@ -24,7 +26,7 @@ class AdmHome extends Component {
             {
                 this.getImage();
             }
-            if(value==="notice")
+            else
             {
                 this.setState({
                     load_file:0,
@@ -51,6 +53,7 @@ class AdmHome extends Component {
             imgg.height=300;
             // document.getElementById('profilepic').appendChild(imgg);
         }
+        this.setState()
     }
     addNotice=()=>{
         const heading= document.getElementById('heading').value;
@@ -196,7 +199,8 @@ class AdmHome extends Component {
                                 </center>
                             </div>
                             :
-                            <h1>other</h1>
+                            (this.state.display==="faculty")?<AddTeacher></AddTeacher>
+                            :(this.state.display==="student")?<AddStudent></AddStudent>:<h1>other</h1>
                             }
                         </div>
                     </div>

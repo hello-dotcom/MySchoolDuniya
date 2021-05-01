@@ -6,8 +6,8 @@ class AddStudent extends Component{
         super(props);
         this.state={
             id:"",
-            fullname:"",
-            pname:"",
+            name:"",
+            parent_name:"",
             email:"",
             password:"",
             class:"",

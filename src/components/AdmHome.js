@@ -5,6 +5,7 @@ import '../styles/admHome.css'
 import {API_URL} from '../config/config'
 import AddTeacher from './AddTeacher';
 import AddStudent from './AddStudent';
+import AddClass from './AddClass';
 
 class AdmHome extends Component {
     constructor(props) {
@@ -184,11 +185,11 @@ class AdmHome extends Component {
                                 <h1>Adding Notice</h1>
                                 <label for="heading" className="label_item">Heading:</label>
                                 <br></br>
-                                <textarea id="heading" rows="4" cols="100" required></textarea>
+                                <textarea id="heading" rows="4" cols="50" required></textarea>
                                 <br></br>
                                 <label for="message" className="label_item">Message:</label>
                                 <br></br>
-                                <textarea id="message" rows="10" cols="100" required></textarea>
+                                <textarea id="message" rows="10" cols="50" required></textarea>
                                 <br></br>
                                 <label for="file" className="label_item">Upload File:</label>
                                 <br></br>
@@ -200,7 +201,9 @@ class AdmHome extends Component {
                             </div>
                             :
                             (this.state.display==="faculty")?<AddTeacher></AddTeacher>
-                            :(this.state.display==="student")?<AddStudent></AddStudent>:<h1>other</h1>
+                            :(this.state.display==="student")?<AddStudent></AddStudent>
+                            :(this.state.display==="class")?<AddClass></AddClass>
+                            :null
                             }
                         </div>
                     </div>

@@ -13,6 +13,7 @@ import Upload from './components/Upload';
 import AddStudent from './components/AddStudent';
 import AddTeacher from './components/AddTeacher';
 import AdmHome from './components/AdmHome';
+import AddClass from './components/AddClass'
 
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
 				</Route>
 				<Route exact path="/home1">
 					<AdmHome></AdmHome>
+				</Route>
+				<Route exact path="/class">
+					<AddClass></AddClass>
 				</Route>
 			</Switch>
 		</Router>

@@ -46,13 +46,18 @@ class Home extends Component {
 				>
 					Add Teacher
 				</button>
-				<button
-					onClick={() => this.props.history.push('/first')}
+                <button
+					onClick={() => this.props.history.push('/chat')}
 					className="btn btn-primary"
 				>
-					First
+					Chat
 				</button>
-				
+                <button
+					onClick={() => this.props.history.push('/leave')}
+					className="btn btn-primary"
+				>
+					Leave
+				</button>
 			</div>
 		);
 	}

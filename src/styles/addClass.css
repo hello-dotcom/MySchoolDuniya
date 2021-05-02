@@ -1,0 +1,36 @@
+.item_heading{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+    color: black;
+    padding-left:20px;
+    justify-content: left;
+}
+
+table, th, td {
+    border: 2px solid black;
+    /* width: 300%; */
+    font-size: 20px;
+  }
+
+.item_edit
+{
+    padding: 5px;
+    text-align: center;
+    width: 100px;
+    cursor: pointer;
+    color: blue;
+    border: 1px solid black;
+}
+.item_delete
+{
+    padding: 5px;
+    text-align: center;
+    width: 100px;
+    cursor: pointer;
+    color:red;
+    border: 1px solid black;
+}
+
+.item_delete_bin{
+    font-size: xx-large;
+}

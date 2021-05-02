@@ -46,8 +46,9 @@ class AddTeacher extends Component{
         const phoneregex=/^[1-9][0-9]{9}$/;
         const emailregex=/^([a-z-9A-Z\.-]+)@([a-z0-9A-Z-]+)\.([a-z]{2,8})(.[a-z]{2,8})?$/;
         const passwordregex=/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+()]).{8,20}$/;
-        if(id===""||name===""||password===""||address===""||phone===""||email===""||qualification===""||
-        subject===""||dob===""||role===""||parent_name==="")
+        if(id.trim()===""||name.trim()===""||password.trim()===""||address.trim()===""||phone.trim()===""||
+        email.trim()===""||qualification.trim()===""||
+        subject.trim()===""||dob.trim()===""||role.trim()===""||parent_name.trim()==="")
         {
            alert("fields can't be empty");
            return ;

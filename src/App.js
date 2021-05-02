@@ -14,6 +14,9 @@ import AddStudent from './components/AddStudent';
 import AddTeacher from './components/AddTeacher';
 import Chat from './components/Chat';
 import Leave from './components/Leave';
+import AdmHome from './components/AdmHome';
+import AddClass from './components/AddClass'
+
 
 // class App extends Component {
 //   constructor(props) {
@@ -104,6 +107,12 @@ function App() {
                 <Leave></Leave>
          </Route>
          
+				<Route exact path="/home1">
+					<AdmHome></AdmHome>
+				</Route>
+				<Route exact path="/class">
+					<AddClass></AddClass>
+				</Route>
 			</Switch>
 		</Router>
 	);

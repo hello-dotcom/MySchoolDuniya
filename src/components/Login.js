@@ -30,15 +30,18 @@ class Login extends Component {
 			})
 				.then((res) => res.json())
 				.then((res) => {
+					
 					if (res.status === 400) {
 						alert(res.message);
 					} else if (res.status === 500) {
 						alert('Internal system error');
 					} else if (res.status === 200) {
 						alert(res.message);
-						localStorage.setItem('token', 'Bearer' + res.token);
-						if (localStorage.getItem('as') == 'admin') {
-							this.props.history.push('/addteacher');
+						localStorage.setItem('token', 'Bearer ' + res.token);
+						if (res.output.role==='Admin') {
+							localStorage.setItem('profile',JSON.stringify(res.output));
+							localStorage.setItem('role',res.output.role);
+							this.props.history.push('/home1');
 						} else {
 							this.props.hisotry.push('/upload');
 						}
@@ -89,7 +92,7 @@ class Login extends Component {
 				<div className="imgcontainer">
 					<img src={avatar} alt="Avatar" className="avatar" />
 				</div>
-				<div className="">
+				 {/* <div className=""> */}
 					<div className="row">
 						<label className="col-4">Username : </label>
 						<input
@@ -120,7 +123,7 @@ class Login extends Component {
 							Forgot <a href="/">password?</a>
 						</span>
 					</div>
-				</div>
+				{/* </div> */}
 			</div>
 		);
 	}

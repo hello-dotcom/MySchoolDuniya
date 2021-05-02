@@ -44,6 +44,7 @@ class Chat extends Component{
     <div class="content-wrapper">
 
         {/* <!-- Row start --> */}
+
         <div class="row gutters">
 
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -128,6 +129,7 @@ class Chat extends Component{
                                 </ul>
                             </div>
                         </div>
+                        
                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
                             <div class="selected-user">
                                 <span>To: <span class="name">Emily Russell</span></span>

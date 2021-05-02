@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import '../styles/addStudent.css';
 
-class Home extends Component {
+class Work extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -12,7 +13,8 @@ class Home extends Component {
 	render() {
 		return (
 			<div className="text-center">
-				<h1>hai</h1>
+				<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Working on below things</h1>
+
 				<button
 					onClick={() => this.props.history.push('/addstudent')}
 					className="btn btn-primary"
@@ -26,10 +28,7 @@ class Home extends Component {
 					goto Student
 				</button>
 				<button
-					onClick={() => {
-						localStorage.setItem('as', 'admin');
-						this.props.history.push('/login');
-					}}
+					onClick={() => this.props.history.push('/login')}
 					className="btn btn-success"
 				>
 					Login
@@ -40,26 +39,8 @@ class Home extends Component {
 				>
 					Upload
 				</button>
-				<button
-					onClick={() => this.props.history.push('/addteacher')}
-					className="btn btn-primary"
-				>
-					Add Teacher
-				</button>
-                <button
-					onClick={() => this.props.history.push('/chat')}
-					className="btn btn-primary"
-				>
-					Chat
-				</button>
-                <button
-					onClick={() => this.props.history.push('/leave')}
-					className="btn btn-primary"
-				>
-					Leave
-				</button>
 			</div>
 		);
 	}
 }
-export default withRouter(Home);
+export default withRouter(Work);

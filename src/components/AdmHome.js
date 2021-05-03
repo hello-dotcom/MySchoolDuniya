@@ -6,6 +6,7 @@ import {API_URL} from '../config/config'
 import AddTeacher from './AddTeacher';
 import AddStudent from './AddStudent';
 import AddClass from './AddClass';
+import AddSubject from './AddSubject';
 
 class AdmHome extends Component {
     constructor(props) {
@@ -203,6 +204,7 @@ class AdmHome extends Component {
                             (this.state.display==="faculty")?<AddTeacher></AddTeacher>
                             :(this.state.display==="student")?<AddStudent></AddStudent>
                             :(this.state.display==="class")?<AddClass></AddClass>
+                            :(this.state.display==="subject")?<AddSubject></AddSubject>
                             :null
                             }
                         </div>

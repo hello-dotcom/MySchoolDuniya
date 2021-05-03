@@ -10,7 +10,7 @@ const About = () => {
 				height: '100vh',
 			}}
 		>
-			<h1>About Our Esteemed Web Portal for School ... </h1>
+			<center><h1>About Our Esteemed Web Portal for School ... </h1></center>
 		</div>
 	);
 };

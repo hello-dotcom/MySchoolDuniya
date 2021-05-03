@@ -16,6 +16,7 @@ import Chat from './components/Chat';
 import Leave from './components/Leave';
 import AdmHome from './components/AdmHome';
 import AddClass from './components/AddClass'
+import AddSubject from './components/AddSubject'
 
 
 // class App extends Component {
@@ -100,18 +101,20 @@ function App() {
 				<Route path="/addteacher" component={AddTeacher}>
 					<AddTeacher></AddTeacher>
 				</Route>
-        <Route exact path="/chat">
-                <Chat></Chat>
-         </Route>
-         <Route exact path="/leave">
-                <Leave></Leave>
-         </Route>
-         
+        		<Route exact path="/chat">
+                	<Chat></Chat>
+        		</Route>
+         		<Route exact path="/leave">
+                	<Leave></Leave>
+         		</Route>
 				<Route exact path="/home1">
 					<AdmHome></AdmHome>
 				</Route>
 				<Route exact path="/class">
 					<AddClass></AddClass>
+				</Route>
+				<Route exact path="/subject">
+					<AddSubject></AddSubject>
 				</Route>
 			</Switch>
 		</Router>

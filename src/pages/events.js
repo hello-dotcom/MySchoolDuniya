@@ -10,7 +10,7 @@ const Events = () => {
 				height: '100vh',
 			}}
 		>
-			<h1>Welcome to Events Section</h1>
+			<center><h1>Welcome to Events Section</h1></center>
 		</div>
 	);
 };

@@ -1,15 +1,13 @@
-.noticeBoardContainer
-{
-    padding: 100px;
-    margin:25px;
-    background-color:burlywood;
+.noticeBoardContainer {
+  padding: 60px;
+  margin: 25px;
+  background-color: burlywood;
 }
-.noticeItem
-{
-    background-color: cornsilk;
-    padding: 10px;
-    margin:10px;
-    border-radius: 5px;
+.noticeItem {
+  background-color: cornsilk;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
 }
 .collapsible {
   background-color: #777;
@@ -34,13 +32,13 @@
   overflow: hidden;
   text-align: left;
   background-color: #f1f1f1;
-} 
-
-.fileItem{
-    color:blue;
-    cursor: pointer;
 }
 
-.dustbin{
-    cursor: pointer;
+.fileItem {
+  color: blue;
+  cursor: pointer;
+}
+
+.dustbin {
+  cursor: pointer;
 }

@@ -6,7 +6,7 @@ import {API_URL} from '../config/config'
 import AddTeacher from './AddTeacher';
 import AddStudent from './AddStudent';
 import AddClass from './AddClass';
-import Chat from './Chat';
+import AddSubject from './AddSubject';
 
 class AdmHome extends Component {
     constructor(props) {
@@ -155,7 +155,6 @@ class AdmHome extends Component {
                             <li className="item" value="add_faculty" onClick={()=>this.setDisplay("faculty")}>Faculty</li>
                             <li className="item" value="class" onClick={()=>this.setDisplay("class")}>Class</li>
                             <li className="item" value="add_subject" onClick={()=>this.setDisplay("subject")}>Subject</li>
-                            <li className="item" value="ff_chat" onClick={()=>this.setDisplay("ff_chat")}>FF_Chat</li>
                         </div>
                     </div>
                     <div className="col-9">
@@ -175,7 +174,6 @@ class AdmHome extends Component {
                                     <h2 className="profile_field">Date of Birth:{JSON.parse(localStorage.getItem('profile')).dob}</h2>
                                     <h2 className="profile_field">Parent Name:{JSON.parse(localStorage.getItem('profile')).parent_name}</h2>
                                     <h2 className="profile_field">Role:{JSON.parse(localStorage.getItem('profile')).role}</h2>
-                
                                 </div>
                                 <div className="col-3" >
                                     <img id="profilepic" src="" alt=""></img>
@@ -206,8 +204,7 @@ class AdmHome extends Component {
                             (this.state.display==="faculty")?<AddTeacher></AddTeacher>
                             :(this.state.display==="student")?<AddStudent></AddStudent>
                             :(this.state.display==="class")?<AddClass></AddClass>
-                            :(this.state.display==="subject")?<h1>hello class</h1>
-                            :(this.state.display==="ff_chat")?<Chat></Chat>
+                            :(this.state.display==="subject")?<AddSubject></AddSubject>
                             :null
                             }
                         </div>

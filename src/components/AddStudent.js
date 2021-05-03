@@ -14,7 +14,7 @@ class AddStudent extends Component {
 			password: '',
 			classNum: '',
 			dob: '',
-			phoneno: '',
+			phone: '',
 			address: '',
 			role: 'Student',
 			load_file: 0,
@@ -70,7 +70,7 @@ class AddStudent extends Component {
 		) {
 			alert("fields can't be empty");
 			return;
-		} else if (!id.startsWith('Stu') || id.length !== 7) {
+		} else if (!id.startsWith('S') || id.length !== 7) {
 			alert('id is incorrect');
 			return;
 		} else if (!phoneregex.test(phone)) {
@@ -99,7 +99,7 @@ class AddStudent extends Component {
 				})
 				.then((res) => {
 					const fl = res.data.file.filename;
-					fetch(`${API_URL}/admin/student`, {
+					fetch(`${API_URL}/student/newone`, {
 						method: 'POST',
 						headers: {
 							'Content-Type': 'application/json',
@@ -112,10 +112,10 @@ class AddStudent extends Component {
 							address: address,
 							email: email,
 							phone: phone,
-							classNum: classNum,
+							class: classNum,
 							dob: dob,
 							parent_name: parent_name,
-							role: role,
+							// role: role,
 							filename: fl,
 						}),
 					})
@@ -238,7 +238,8 @@ class AddStudent extends Component {
 
 				<div className="btncontainer">
 					<button type="submit" onClick={() => this.addStudent()}>
-						Sign up(Student)
+						{/* Sign up(Student) */}
+						Add
 					</button>
 				</div>
 			</div>

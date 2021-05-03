@@ -30,7 +30,7 @@ class Login extends Component {
 			})
 				.then((res) => res.json())
 				.then((res) => {
-					
+					console.log(res);
 					if (res.status === 400) {
 						alert(res.message);
 					} else if (res.status === 500) {

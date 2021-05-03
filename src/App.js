@@ -15,21 +15,20 @@ import AddTeacher from './components/AddTeacher';
 import Chat from './components/Chat';
 import Leave from './components/Leave';
 import AdmHome from './components/AdmHome';
-import AddClass from './components/AddClass'
-import AddSubject from './components/AddSubject'
-
+import AddClass from './components/AddClass';
+import AddSubject from './components/AddSubject';
 
 // class App extends Component {
 //   constructor(props) {
 //     super(props)
-  
+
 //     this.state = {
-       
+
 //     }
 //   }
-  
+
 //   render(){
-    
+
 //   return (
 //     // <div className="App">
 //     //   <header className="App-header">
@@ -101,19 +100,19 @@ function App() {
 				<Route path="/addteacher" component={AddTeacher}>
 					<AddTeacher></AddTeacher>
 				</Route>
-        		<Route exact path="/chat">
-                	<Chat></Chat>
-        		</Route>
-         		<Route exact path="/leave">
-                	<Leave></Leave>
-         		</Route>
-				<Route exact path="/home1">
+				<Route exact path="/chat">
+					<Chat></Chat>
+				</Route>
+				<Route exact path="/leave">
+					<Leave></Leave>
+				</Route>
+				<Route exact path="/home1" component={AdmHome}>
 					<AdmHome></AdmHome>
 				</Route>
-				<Route exact path="/class">
+				<Route exact path="/addclass" component={AddClass}>
 					<AddClass></AddClass>
 				</Route>
-				<Route exact path="/subject">
+				<Route exact path="/addsubject" component={AddSubject}>
 					<AddSubject></AddSubject>
 				</Route>
 			</Switch>

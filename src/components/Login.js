@@ -30,7 +30,6 @@ class Login extends Component {
 			})
 				.then((res) => res.json())
 				.then((res) => {
-					
 					if (res.status === 400) {
 						alert(res.message);
 					} else if (res.status === 500) {
@@ -38,9 +37,9 @@ class Login extends Component {
 					} else if (res.status === 200) {
 						alert(res.message);
 						localStorage.setItem('token', 'Bearer ' + res.token);
-						if (res.output.role==='Admin') {
-							localStorage.setItem('profile',JSON.stringify(res.output));
-							localStorage.setItem('role',res.output.role);
+						if (res.output.role === 'Admin') {
+							localStorage.setItem('profile', JSON.stringify(res.output));
+							localStorage.setItem('role', res.output.role);
 							this.props.history.push('/home1');
 						} else {
 							this.props.hisotry.push('/upload');
@@ -88,41 +87,41 @@ class Login extends Component {
 
 			// </div>
 			//   </form>
-			<div className="container">
+			<div className="container" style={{ marginTop: '100px' }}>
 				<div className="imgcontainer">
 					<img src={avatar} alt="Avatar" className="avatar" />
 				</div>
-				 {/* <div className=""> */}
-					<div className="row">
-						<label className="col-4">Username : </label>
-						<input
-							className="col-6"
-							type="text"
-							placeholder="Enter Username"
-							name="username"
-							id="id"
-							required
-						/>
-					</div>
-					<div className="row">
-						<label className="col-4">Password : </label>
-						<input
-							className="col-6"
-							type="password"
-							placeholder="Enter Password"
-							name="password"
-							id="password"
-							required
-						/>
-					</div>
-					<div className="btncontainer">
-						<button onClick={() => this.login()}>Login</button>
-					</div>
-					<div className="btncontainer">
-						<span className="psw">
-							Forgot <a href="/">password?</a>
-						</span>
-					</div>
+				{/* <div className=""> */}
+				<div className="row">
+					<label className="col-4">Username : </label>
+					<input
+						className="col-6"
+						type="text"
+						placeholder="Enter Username"
+						name="username"
+						id="id"
+						required
+					/>
+				</div>
+				<div className="row">
+					<label className="col-4">Password : </label>
+					<input
+						className="col-6"
+						type="password"
+						placeholder="Enter Password"
+						name="password"
+						id="password"
+						required
+					/>
+				</div>
+				<div className="btncontainer">
+					<button onClick={() => this.login()}>Login</button>
+				</div>
+				<div className="btncontainer">
+					<span className="psw">
+						Forgot <a href="/">password?</a>
+					</span>
+				</div>
 				{/* </div> */}
 			</div>
 		);

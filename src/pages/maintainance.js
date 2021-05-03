@@ -8,6 +8,7 @@ const Maintainance = () => {
 				justifyContent: 'Right',
 				alignItems: 'Right',
 				height: '100vh',
+				paddingTop: '100px',
 			}}
 		>
 			<h1>Maintainance Work Station</h1>

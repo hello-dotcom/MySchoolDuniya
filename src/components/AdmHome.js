@@ -7,6 +7,7 @@ import AddTeacher from './AddTeacher';
 import AddStudent from './AddStudent';
 import AddClass from './AddClass';
 import AddSubject from './AddSubject';
+import ProcessLeave from './ProcessLeave';
 
 class AdmHome extends Component {
 	constructor(props) {
@@ -199,6 +200,13 @@ class AdmHome extends Component {
 							>
 								Subject
 							</li>
+							<li
+								className="item"
+								value="process_leave"
+								onClick={() => this.setDisplay('processleave')}
+							>
+								Process Leave 
+							</li>
 						</div>
 					</div>
 					<div className="col-9">
@@ -297,7 +305,9 @@ class AdmHome extends Component {
 								<AddClass></AddClass>
 							) : this.state.display === 'subject' ? (
 								<AddSubject></AddSubject>
-							) : null}
+							) : this.state.display==='processleave'?
+								<ProcessLeave></ProcessLeave> 
+							:null}
 						</div>
 					</div>
 				</div>

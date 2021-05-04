@@ -17,6 +17,7 @@ import Leave from './components/Leave';
 import AdmHome from './components/AdmHome';
 import AddClass from './components/AddClass';
 import AddSubject from './components/AddSubject';
+import ProcessLeave from './components/ProcessLeave';
 
 // class App extends Component {
 //   constructor(props) {
@@ -114,6 +115,9 @@ function App() {
 				</Route>
 				<Route exact path="/addsubject" component={AddSubject}>
 					<AddSubject></AddSubject>
+				</Route>
+				<Route exact path="/processleave" >
+					<ProcessLeave></ProcessLeave>
 				</Route>
 			</Switch>
 		</Router>

@@ -38,11 +38,17 @@ class Login extends Component {
 					} else if (res.status === 200) {
 						alert(res.message);
 						localStorage.setItem('token', 'Bearer ' + res.token);
-						if (res.output.role==='Admin') {
+						if(localStorage.getItem('as')==='student')
+						{
+							localStorage.setItem('profile',JSON.stringify(res.output));
+							localStorage.setItem('role','Student');
+							this.props.history.push('/');
+						}
+						else if (res.output.role==='Admin') {
 							localStorage.setItem('profile',JSON.stringify(res.output));
 							localStorage.setItem('role',res.output.role);
 							this.props.history.push('/home1');
-						} else {
+						} else if(res.output.role==='Faculty') {
 							this.props.hisotry.push('/upload');
 						}
 					}

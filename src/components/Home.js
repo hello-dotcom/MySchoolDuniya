@@ -35,6 +35,15 @@ class Home extends Component {
 					Login
 				</button>
 				<button
+					onClick={() => {
+						localStorage.setItem('as', 'student');
+						this.props.history.push('/login');
+					}}
+					className="btn btn-success"
+				>
+					Login as Student
+				</button>
+				<button
 					onClick={() => this.props.history.push('/upload')}
 					className="btn btn-secondary"
 				>

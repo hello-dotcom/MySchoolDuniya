@@ -8,9 +8,12 @@ const Events = () => {
 				justifyContent: 'Right',
 				alignItems: 'Right',
 				height: '100vh',
+				paddingTop: '100px',
 			}}
 		>
-			<center><h1>Welcome to Events Section</h1></center>
+			<center>
+				<h1>Welcome to Events Section</h1>
+			</center>
 		</div>
 	);
 };

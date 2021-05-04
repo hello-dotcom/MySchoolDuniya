@@ -9,6 +9,10 @@ export const Nav = styled.nav`
 	justify-content: space-between;
 	padding: 0.2rem calc((100vw - 1000px) / 2);
 	z-index: 12;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
 	/* Third Nav */
 	/* justify-content: flex-start; */
 `;
@@ -32,8 +36,8 @@ export const Bars = styled(FaBars)`
 	@media screen and (max-width: 768px) {
 		display: block;
 		position: absolute;
-		top: 0;
-		right: 0;
+		top: 0.75rem;
+		right: 1rem;
 		transform: translate(-100%, 75%);
 		font-size: 1.8rem;
 		cursor: pointer;

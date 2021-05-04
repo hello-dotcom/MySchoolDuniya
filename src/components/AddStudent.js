@@ -140,7 +140,7 @@ class AddStudent extends Component {
 
 	render() {
 		return (
-			<div className="container">
+			<div className="container" style={{ marginTop: '100px' }}>
 				<center>
 					<h2>Add Student Form</h2>
 				</center>

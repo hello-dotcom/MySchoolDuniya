@@ -110,7 +110,7 @@ class Leave extends Component{
   
     render(){
         return (
-            <div>
+            <div style={{ marginTop: '100px' }}>
               {/* <form> */}
                     <div className="container">
                         <center><h2>Leave Application form</h2></center>

@@ -55,17 +55,35 @@ class Home extends Component {
 				>
 					Add Teacher
 				</button>
-                <button
+				<button
 					onClick={() => this.props.history.push('/chat')}
 					className="btn btn-primary"
 				>
 					Chat
 				</button>
-                <button
+				<button
 					onClick={() => this.props.history.push('/leave')}
 					className="btn btn-primary"
 				>
 					Leave
+				</button>
+				<button
+					onClick={() => this.props.history.push('/addclass')}
+					className="btn btn-primary"
+				>
+					Add Class
+				</button>
+				<button
+					onClick={() => this.props.history.push('/addsubject')}
+					className="btn btn-primary"
+				>
+					Add Subject
+				</button>
+				<button
+					onClick={() => this.props.history.push('/home1')}
+					className="btn btn-primary"
+				>
+					Admin Home
 				</button>
 			</div>
 		);

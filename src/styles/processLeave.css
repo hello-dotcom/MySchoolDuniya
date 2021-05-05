@@ -1,0 +1,28 @@
+.leavesContainer
+{
+    background-color:palegoldenrod;
+    width: auto;
+    border: 2px solid orange;
+    padding: 20px;
+    align-items: center;
+    margin: 20px;
+    align-items: center;
+}
+
+td{
+    padding: 10px;
+    
+}
+
+thead{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.btnele{
+    color:white;
+    background-color: green;
+    font-size: x-large;
+    width: auto;
+    padding:5px;
+}

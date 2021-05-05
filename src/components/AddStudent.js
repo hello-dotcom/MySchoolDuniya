@@ -140,7 +140,7 @@ class AddStudent extends Component {
 
 	render() {
 		return (
-			<div className="container" style={{ marginTop: '100px' }}>
+			<div className="container">
 				<center>
 					<h2>Add Student Form</h2>
 				</center>
@@ -198,7 +198,7 @@ class AddStudent extends Component {
 					onChange={this.handleChange}
 					required
 				/>
-				<label>Date Of Birth: </label>
+				<label>Date Of Birth :&nbsp;</label>
 				<input
 					type="date"
 					id="dob"
@@ -238,7 +238,6 @@ class AddStudent extends Component {
 
 				<div className="btncontainer">
 					<button type="submit" onClick={() => this.addStudent()}>
-						{/* Sign up(Student) */}
 						Add
 					</button>
 				</div>

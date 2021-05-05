@@ -99,7 +99,7 @@ class NavbarPage extends Component {
 						title="Login"
 						id="basic-nav-dropdown"
 					>
-						<NavDropdown.Item href="/login">student</NavDropdown.Item>
+						<NavDropdown.Item href="/login" >Student</NavDropdown.Item>
 						<NavDropdown.Divider />
 						<NavDropdown.Item href="/login">Faculty</NavDropdown.Item>
 						<NavDropdown.Divider />

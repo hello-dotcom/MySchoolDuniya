@@ -111,12 +111,12 @@ class AddClass extends Component {
 			})
 				.then((res) => res.json())
 				.then((res) => {
-					if (res.status == 401) {
+					if (res.status === 401) {
 						alert(res.message);
 						localStorage.clear('token');
 						localStorage.clear('role');
 						this.props.history.push('/');
-					} else if (res.status == 200) {
+					} else if (res.status === 200) {
 						alert(res.message);
 						window.location.reload();
 					}

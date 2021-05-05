@@ -1,6 +1,6 @@
-@media (max-width: 768px) {
-	.navbar-links.active {
-		display: flex;
-		flex-direction: column;
-	}
+.navbar-links.active {
+	color: red;
+}
+.navbar {
+	background-color: white;
 }

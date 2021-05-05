@@ -7,12 +7,13 @@ import {
 	NavBtn,
 	NavBtnLink,
 } from './NavbarElements';
+import './navbarstyles.css';
 
 const Navbar = () => {
 	return (
 		<>
 			<Nav>
-				<Bars />
+				<Bars></Bars>
 
 				<NavMenu>
 					<NavLink to="/" activeStyle>
@@ -33,7 +34,12 @@ const Navbar = () => {
 					{/* Second Nav */}
 					{/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
 				</NavMenu>
-				<NavBtn>
+
+				<NavBtn
+					style={{
+						marginRight: '70px',
+					}}
+				>
 					<NavBtnLink to="/login">Sign In</NavBtnLink>
 				</NavBtn>
 			</Nav>

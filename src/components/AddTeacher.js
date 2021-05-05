@@ -86,7 +86,7 @@ class AddTeacher extends Component {
 				'password must have a number, one uppercase ,one lower case letter and one special character'
 			);
 			return;
-		} else if (this.state.load_file == 0) {
+		} else if (this.state.load_file === 0) {
 			alert('image uploading is required');
 			return;
 		} else {

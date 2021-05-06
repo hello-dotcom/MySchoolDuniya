@@ -62,77 +62,41 @@ class Login extends Component {
 	};
 	render() {
 		return (
-			// <form onSubmit="">
-			// <div className="form-forms ">
-			//     <div className="imgcontainer">
-			//         <img src={avatar} alt="Avatar" className="avatar" />
-			//     </div>
-			//     <div className="container">
-			//         <label>Username : </label>
-			//         <input
-			//         type="text"
-			//         placeholder="Enter Username"
-			//         name="username"
-			//         id="id"
-			//         required
-			//         />
-			//         <label>Password : </label>
-			//         <input
-			//         type="password"
-			//         placeholder="Enter Password"
-			//         name="password"
-			//         id="password"
-			//         required
-			//         />
-			//     </div>
-			//     <div className="btncontainer">
-			//         <button  onClick={()=>this.login()}>Login</button>
-			//     </div>
-			//     <center>
-			//         <div className="container">
-			//         <span className="psw">Forgot <a href="/">password?</a></span>
-			//         </div>
-			//     </center>
 
-			// </div>
-			//   </form>
-			<div className="container" style={{ marginTop: '100px' }}>
-				<div className="imgcontainer">
-					<img src={avatar} alt="Avatar" className="avatar" />
-				</div>
-				{/* <div className=""> */}
-				<div className="row">
-					<label className="col-4">Username : </label>
-					<input
-						className="col-6"
-						type="text"
-						placeholder="Enter Username"
-						name="username"
-						id="id"
-						required
-					/>
-				</div>
-				<div className="row">
-					<label className="col-4">Password : </label>
-					<input
-						className="col-6"
-						type="password"
-						placeholder="Enter Password"
-						name="password"
-						id="password"
-						required
-					/>
-				</div>
-				<div className="btncontainer">
-					<button onClick={() => this.login()}>Login</button>
-				</div>
-				<div className="btncontainer">
-					<span className="psw">
-						Forgot <a href="/">password?</a>
-					</span>
-				</div>
-				{/* </div> */}
+			<div className="container" style={{width: '40%', marginLeft: '30%',marginTop:'120px'}}>
+			    <div className="imgcontainer">
+			        <img src={avatar} alt="Avatar" className="avatar" />
+			    </div>
+			    <div className="inpcontainer">
+			        <label>Username : </label>
+			        <input
+			        type="text"
+			        placeholder="Enter Username"
+			        name="username"
+			        id="id"
+			        required
+					style={{width: '100%'}}
+			        />
+			        <label>Password : </label>
+			        <input
+			        type="password"
+			        placeholder="Enter Password"
+			        name="password"
+			        id="password"
+			        required
+			        />
+			    </div>
+			    <div className="btncontainer">
+			        <button  onClick={()=>this.login()}>Login</button>
+			    </div>
+			    <center>
+			        <div className="btncontainer">
+			        <span className="psw">Forgot <a href="/">password?</a></span>
+			        </div>
+			    </center>
+
 			</div>
+		
 		);
 	}
 }

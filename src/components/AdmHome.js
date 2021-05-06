@@ -214,46 +214,46 @@ class AdmHome extends Component {
 							{this.state.display === 'profile' ? (
 								<div className="profileContainer row ">
 									<div className="col-8">
-										<h2 className="profile_field">
+										<h4 className="profile_field">
 											Id:{JSON.parse(localStorage.getItem('profile')).id}
-										</h2>
-										<h2 className="profile_field">
+										</h4>
+										<h4 className="profile_field">
 											Name:{JSON.parse(localStorage.getItem('profile')).name}
-										</h2>
-										<h2 className="profile_field">
+										</h4>
+										<h4 className="profile_field">
 											Phone:{JSON.parse(localStorage.getItem('profile')).phone}
-										</h2>
-										<h2 className="profile_field">
+										</h4>
+										<h4 className="profile_field">
 											Email:{JSON.parse(localStorage.getItem('profile')).email}
-										</h2>
-										<h2 className="profile_field">
+										</h4>
+										<h4 className="profile_field">
 											Address:
 											{JSON.parse(localStorage.getItem('profile')).address}
-										</h2>
-										<h2 className="profile_field">
+										</h4>
+										<h4 className="profile_field">
 											Subject:
 											{JSON.parse(localStorage.getItem('profile')).subject}
-										</h2>
-										<h2 className="profile_field">
+										</h4>
+										<h4 className="profile_field">
 											Qualification:
 											{
 												JSON.parse(localStorage.getItem('profile'))
 													.qualification
 											}
-										</h2>
-										<h2 className="profile_field">
+										</h4>
+										<h4 className="profile_field">
 											Date of Birth:
 											{JSON.parse(localStorage.getItem('profile')).dob}
-										</h2>
-										<h2 className="profile_field">
+										</h4>
+										<h4 className="profile_field">
 											Parent Name:
 											{JSON.parse(localStorage.getItem('profile')).parent_name}
-										</h2>
-										<h2 className="profile_field">
+										</h4>
+										<h4 className="profile_field">
 											Role:{JSON.parse(localStorage.getItem('profile')).role}
-										</h2>
+										</h4>
 									</div>
-									<div className="col-3">
+									<div className="col-4">
 										<img id="profilepic" src="" alt=""></img>
 									</div>
 								</div>

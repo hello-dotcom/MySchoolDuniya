@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
+import NavbarPage from './components/newNavbar/newnavbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages';
 import About from './pages/about';
@@ -18,68 +19,11 @@ import AdmHome from './components/AdmHome';
 import AddClass from './components/AddClass';
 import AddSubject from './components/AddSubject';
 import ProcessLeave from './components/ProcessLeave';
-
-// class App extends Component {
-//   constructor(props) {
-//     super(props)
-
-//     this.state = {
-
-//     }
-//   }
-
-//   render(){
-
-//   return (
-//     // <div className="App">
-//     //   <header className="App-header">
-//     //     <img src={logo} className="App-logo" alt="logo" />
-//     //     <p>
-//     //       Edit <code>src/App.js</code> and save to reload.
-//     //     </p>
-//     //     <a
-//     //       className="App-link"
-//     //       href="https://reactjs.org"
-//     //       target="_blank"
-//     //       rel="noopener noreferrer"
-//     //     >
-//     //       Learn React
-//     //     </a>
-//     //   </header>
-//     // </div>
-//     <Router>
-//       <div>
-//         <Switch>
-//           <Route exact path="/">
-//             <Home ></Home>
-//           </Route>
-//           <Route exact path="/student">
-//             <Student></Student>
-//           </Route>
-//           <Route exact path="/login">
-//             <Login></Login>
-//           </Route>
-//           <Route exact path="/upload">
-//             <Upload></Upload>
-//           </Route>
-//           <Route exact path="/addstudent">
-//             <AddStudent></AddStudent>
-//           </Route>
-//           <Route exact path="/addteacher">
-//             <AddTeacher></AddTeacher>
-//           </Route>
-//           <Route exact path="/chat">
-//             <Chat></Chat>
-//           </Route>
-//         </Switch>
-//       </div>
-//     </Router>
-//   );
-//   }
 function App() {
 	return (
 		<Router>
-			<Navbar />
+			{/* <Navbar /> */}
+			<NavbarPage />
 			<Switch>
 				<Route path="/" exact component={Home} />
 				<Route path="/about" component={About} />

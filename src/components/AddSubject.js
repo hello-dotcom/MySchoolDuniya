@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { API_URL } from '../config/config';
 import '../styles/addClass.css';
+import { Table } from 'react-bootstrap';
 class AddSubject extends Component {
 	constructor(props) {
 		super(props);
@@ -107,12 +108,12 @@ class AddSubject extends Component {
 			})
 				.then((res) => res.json())
 				.then((res) => {
-					if (res.status == 401) {
+					if (res.status === 401) {
 						alert(res.message);
 						localStorage.clear('token');
 						localStorage.clear('role');
 						this.props.history.push('/');
-					} else if (res.status == 200) {
+					} else if (res.status === 200) {
 						alert(res.message);
 						window.location.reload();
 					}
@@ -190,7 +191,7 @@ class AddSubject extends Component {
 						</div>
 					) : (
 						<center>
-							<table>
+							<Table striped bordered hover>
 								<thead>
 									<tr>
 										<th>Class</th>
@@ -227,7 +228,7 @@ class AddSubject extends Component {
 										);
 									})}
 								</tbody>
-							</table>
+							</Table>
 						</center>
 					)}
 				</div>

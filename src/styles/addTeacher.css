@@ -4,11 +4,10 @@ Body {
 .container {
   padding: 10px;
   background-color: lightblue;
-}
-form {
-  border: 3px solid #f1f1f1;
-  width: 40%;
-  margin: 0 auto;
+  margin-top: 15px;
+  width: 60%;
+  margin-left: 20%;
+  margin-bottom: 10px;
 }
 label {
   font-size: medium;

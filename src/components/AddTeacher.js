@@ -86,7 +86,7 @@ class AddTeacher extends Component {
 				'password must have a number, one uppercase ,one lower case letter and one special character'
 			);
 			return;
-		} else if (this.state.load_file == 0) {
+		} else if (this.state.load_file === 0) {
 			alert('image uploading is required');
 			return;
 		} else {
@@ -143,7 +143,7 @@ class AddTeacher extends Component {
 
 	render() {
 		return (
-			<div className="container" style={{ marginTop: '100px' }}>
+			<div className="container">
 				<center>
 					<h2>Add Teacher Form</h2>
 				</center>
@@ -202,7 +202,7 @@ class AddTeacher extends Component {
 					required
 				/>
 
-				<label>Date Of Birth : </label>
+				<label>Date Of Birth :&nbsp;</label>
 				<input
 					type="date"
 					id="dob"

@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { API_URL } from '../config/config';
 import '../styles/chat.css';
 class Chat extends Component {
 	constructor(props) {
@@ -7,14 +8,140 @@ class Chat extends Component {
 
 		this.state = {
 			empty: '',
+			id1:JSON.parse(localStorage.getItem('profile')).id,
+			index:-1,
+			faculty_list:[],
+			message_list:[],
 		};
+	}
+	fetchAllFaculty=()=>{
+		fetch(`${API_URL}/admin/getAll`,{
+			method:"GET",
+			headers:{
+				'Content-Type':'application/json',
+			}
+		})
+		.then(res=>res.json())
+		.then(res=>{
+			if(res.status===200)
+			{
+				this.setState({
+					faculty_list:res.data,
+				})
+			}
+			else{
+				alert("some this went wrong");
+			}
+		})
+		.catch(err=>console.log(err));
+	}
+	componentDidMount(){
+		this.fetchAllFaculty();
+		setInterval(()=>{
+			if(this.state.index!=-1){
+				this.getChat(this.state.id1,this.state.faculty_list[this.state.index].id);
+			}
+		},60*1000);
+	}
+	selectId=(index)=>{
+		this.setState({
+			...this.state,
+			index:index,
+		},()=>{this.getChat(this.state.id1,this.state.faculty_list[index].id)});
+	}
+	getChat=(id1,id2)=>{
+		fetch(`${API_URL}/admin/ffchat/${id1}/${id2}`,{
+			method:"GET",
+			headers:{
+				'Content-Type':'application/json',
+				Authorization:localStorage.getItem('token'),
+			},
+		})
+		.then(res=>res.json())
+		.then(res=>{
+			if(res.status===401)
+			{
+				alert(res.message);
+				localStorage.clear('token');
+				localStorage.clear('profile');
+				localStorage.clear('role');
+				this.props.history.push('/');
+			}
+			else if(res.status===400)
+			{
+				alert(res.message);
+			}
+			else if(res.status===200)
+			{
+				console.log(res);
+				if(res.data!==[])
+				{
+					this.setState({
+						...this.state,
+						message_list:res.data.message,
+					})
+				}
+				else{
+					alert('hello')
+					this.setState({
+						...this.state,
+						message_list:res.data,
+					})
+				}
+			}
+		})
+		.catch(err=>console.log(err));
+		
+	}
+	sendMsg=()=>{
+		const message=document.getElementById('msgInput').value;
+		console.log(Date());
+		if(message!=="")
+		{
+			fetch(`${API_URL}/admin/ffchat`,{
+				method:"POST",
+				headers:{
+					'Content-Type':'application/json',
+					Authorization:localStorage.getItem('token'),
+				},
+				body:JSON.stringify({
+					id1:this.state.id1,
+					id2:this.state.faculty_list[this.state.index].id,
+					message:message,
+					created:Date(),
+					sender:this.state.id1,
+				})
+			})
+			.then(res=>res.json())
+			.then(res=>{
+				if(res.status===401)
+				{
+					alert(res.message);
+					localStorage.clear('token');
+					localStorage.clear('role');
+					localStorage.clear('profile');
+					this.props.history.push('/');
+				}
+				else if(res.status===400)
+				{
+					alert(res.message);
+				}
+				else if(res.status===200)
+				{
+					this.getChat(this.state.id1,this.state.faculty_list[this.state.index].id);
+					document.getElementById('msgInput').value="";
+				}
+			})
+			.catch(err=>console.log(err));
+		}
+
 	}
 
 	render() {
 		return (
 			<div style={{ marginTop: '100px' }}>
 				{/* <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> */}
-				<div class="container">
+				<div class="Chat_container_CC">
 					{/* <!-- Page header start --> */}
 					<div class="page-title">
 						<div class="row gutters">
@@ -27,7 +154,7 @@ class Chat extends Component {
 										<div id="reportrange">
 											<i class="fa fa-calendar cal"></i>
 											<span class="range-text">
-												Jun 11, 2019 - Jul 10, 2019
+												Cool Chat
 											</span>
 											<i class="fa fa-chevron-down arrow"></i>
 										</div>
@@ -58,233 +185,104 @@ class Chat extends Component {
 									{/* <!-- Row start --> */}
 									<div class="row no-gutters">
 										<div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
-											<div class="users-container">
+											<div class="users-container ">
 												<div class="chat-search-box">
 													<div class="input-group">
 														<input class="form-control" placeholder="Search" />
 														<div class="input-group-btn">
-															<button type="button" class="btn btn-info">
-																<i class="fa fa-search"></i>
+															<button type="button" class="btn btn-info" style={{width:'auto'}}>
+															&#128269;
 															</button>
 														</div>
 													</div>
 												</div>
 												<ul class="users">
-													<li class="person" data-chat="person1">
-														<div class="user">
-															<img
-																src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-																alt="Retail Admin"
-															/>
-															<span class="status busy"></span>
-														</div>
-														<p class="name-time">
-															<span class="name">Steve Bangalter</span>
-															<span class="time">15/02/2019</span>
-														</p>
-													</li>
-													<li class="person" data-chat="person1">
-														<div class="user">
-															<img
-																src="https://www.bootdey.com/img/Content/avatar/avatar1.png"
-																alt="Retail Admin"
-															/>
-															<span class="status offline"></span>
-														</div>
-														<p class="name-time">
-															<span class="name">Steve Bangalter</span>
-															<span class="time">15/02/2019</span>
-														</p>
-													</li>
-													<li class="person active-user" data-chat="person2">
-														<div class="user">
-															<img
-																src="https://www.bootdey.com/img/Content/avatar/avatar2.png"
-																alt="Retail Admin"
-															/>
-															<span class="status away"></span>
-														</div>
-														<p class="name-time">
-															<span class="name">Peter Gregor</span>
-															<span class="time">12/02/2019</span>
-														</p>
-													</li>
-													<li class="person" data-chat="person3">
-														<div class="user">
-															<img
-																src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-																alt="Retail Admin"
-															/>
-															<span class="status busy"></span>
-														</div>
-														<p class="name-time">
-															<span class="name">Jessica Larson</span>
-															<span class="time">11/02/2019</span>
-														</p>
-													</li>
-													<li class="person" data-chat="person4">
-														<div class="user">
-															<img
-																src="https://www.bootdey.com/img/Content/avatar/avatar4.png"
-																alt="Retail Admin"
-															/>
-															<span class="status offline"></span>
-														</div>
-														<p class="name-time">
-															<span class="name">Lisa Guerrero</span>
-															<span class="time">08/02/2019</span>
-														</p>
-													</li>
-													<li class="person" data-chat="person5">
-														<div class="user">
-															<img
-																src="https://www.bootdey.com/img/Content/avatar/avatar5.png"
-																alt="Retail Admin"
-															/>
-															<span class="status away"></span>
-														</div>
-														<p class="name-time">
-															<span class="name">Michael Jordan</span>
-															<span class="time">05/02/2019</span>
-														</p>
-													</li>
+													{this.state.faculty_list.map((item,index)=>{
+														return (
+															<li class="person" data-chat="person1" key={index}
+																onClick={()=>this.selectId(index)}>
+																<div class="single_user user">
+																	<span class="busy">{item.name[0]}</span>
+																</div>
+																<p class="name-time">
+																	<span class="name">{item.name}</span><br></br>
+																	<span class="time">{item.id}</span>
+																</p>
+															</li>
+														)
+													})}
+									
 												</ul>
 											</div>
 										</div>
 
 										<div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
 											<div class="selected-user">
+												{(this.state.index!=-1)?
+												<div className="p-3">
+												<div class="single_user" >
+													<span >{(this.state.index!=-1)?
+													this.state.faculty_list[this.state.index].name[0]:null}</span>
+												</div>
 												<span>
-													To: <span class="name">Emily Russell</span>
+													<span class="name">{(this.state.index!=-1)?
+													this.state.faculty_list[this.state.index].name:null}</span>
 												</span>
+												</div>
+												:null}
 											</div>
 											<div class="chat-container">
 												<ul class="chat-box chatContainerScroll">
-													<li class="chat-left">
-														<div class="chat-avatar">
-															<img
-																src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-																alt="Retail Admin"
-															/>
-															<div class="chat-name">Russell</div>
-														</div>
-														<div class="chat-text">
-															Hello, I'm Russell.
-															<br />
-															How can I help you today?
-														</div>
-														<div class="chat-hour">
-															08:55 <span class="fa fa-check-circle"></span>
-														</div>
-													</li>
-													<li class="chat-right">
-														<div class="chat-hour">
-															08:56 <span class="fa fa-check-circle"></span>
-														</div>
-														<div class="chat-text">
-															Hi, Russell
-															<br /> I need more information about Developer
-															Plan.
-														</div>
-														<div class="chat-avatar">
-															<img
-																src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-																alt="Retail Admin"
-															/>
-															<div class="chat-name">Sam</div>
-														</div>
-													</li>
-													<li class="chat-left">
-														<div class="chat-avatar">
-															<img
-																src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-																alt="Retail Admin"
-															/>
-															<div class="chat-name">Russell</div>
-														</div>
-														<div class="chat-text">
-															Are we meeting today?
-															<br />
-															Project has been already finished and I have
-															results to show you.
-														</div>
-														<div class="chat-hour">
-															08:57 <span class="fa fa-check-circle"></span>
-														</div>
-													</li>
-													<li class="chat-right">
-														<div class="chat-hour">
-															08:59 <span class="fa fa-check-circle"></span>
-														</div>
-														<div class="chat-text">
-															Well I am not sure.
-															<br />I have results to show you.
-														</div>
-														<div class="chat-avatar">
-															<img
-																src="https://www.bootdey.com/img/Content/avatar/avatar5.png"
-																alt="Retail Admin"
-															/>
-															<div class="chat-name">Joyse</div>
-														</div>
-													</li>
-													<li class="chat-left">
-														<div class="chat-avatar">
-															<img
-																src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-																alt="Retail Admin"
-															/>
-															<div class="chat-name">Russell</div>
-														</div>
-														<div class="chat-text">
-															The rest of the team is not here yet.
-															<br />
-															Maybe in an hour or so?
-														</div>
-														<div class="chat-hour">
-															08:57 <span class="fa fa-check-circle"></span>
-														</div>
-													</li>
-													<li class="chat-right">
-														<div class="chat-hour">
-															08:59 <span class="fa fa-check-circle"></span>
-														</div>
-														<div class="chat-text">
-															Have you faced any problems at the last phase of
-															the project?
-														</div>
-														<div class="chat-avatar">
-															<img
-																src="https://www.bootdey.com/img/Content/avatar/avatar4.png"
-																alt="Retail Admin"
-															/>
-															<div class="chat-name">Jin</div>
-														</div>
-													</li>
-													<li class="chat-left">
-														<div class="chat-avatar">
-															<img
-																src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-																alt="Retail Admin"
-															/>
-															<div class="chat-name">Russell</div>
-														</div>
-														<div class="chat-text">
-															Actually everything was fine.
-															<br />
-															I'm very excited to show this to our team.
-														</div>
-														<div class="chat-hour">
-															07:00 <span class="fa fa-check-circle"></span>
-														</div>
-													</li>
+													{(this.state.index!==-1 && this.state.message_list)?
+													this.state.message_list.map((item,index)=>{
+									
+															if(item.sender===this.state.id1)
+															{
+																return(
+																	<li className="chat-right" key={index}>
+																		<div className="chat-hour">
+																			{item.created.substr(0,10)}<br></br>
+																			{/* {new Date(item.created).getHours()}:{new Date(item.created).getMinutes()} */}
+																			{new Date(item.created).toLocaleTimeString('en-US')}
+																		</div>
+																		<div className="chat-text">
+																			{item.msg}
+																		</div>
+																	</li>
+																)
+															}
+															else{
+																return(
+																	<li className="chat-left" key={index}>
+																		<div className="chat-text">
+																			{item.msg}
+																		</div>
+																		<div className="chat-hour">
+																			{item.created.substr(0,10)}<br></br>
+																			{/* {new Date(item.created).getHours()}:{new Date(item.created).getMinutes()} */}
+																			{new Date(item.created).toLocaleTimeString('en-US')}
+																		</div>
+																	</li>
+																)
+															}
+													})
+													:null}
+													
 												</ul>
-												<div class="form-group mt-3 mb-0">
-													<textarea
-														class="form-control"
-														rows="3"
-														placeholder="Type your message here..."
-													></textarea>
+												<div className="d-flex row">
+													{(this.state.index!==-1)?
+													<div class="form-group mt-3 mb-0 col-11">
+														<textarea
+															class="form-control"
+															rows="3"
+															id="msgInput"
+															placeholder="Type your message here..."
+														></textarea>
+													</div>:null}
+													{(this.state.index!==-1)?
+													<div class="col-1 mt-3 pl-0">
+														<button className="send_btn"><span className="send_symbol" onClick={()=>this.sendMsg()}>&#x27A4;</span></button>
+													</div>:null}
 												</div>
 											</div>
 										</div>

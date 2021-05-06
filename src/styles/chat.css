@@ -61,7 +61,7 @@ body{margin-top:20px;}
 .users-container {
     position: relative;
     padding: 1rem 0;
-    border-right: 1px solid #e6ecf3;
+    border-right: 1px solid #000307;
     height: 100%;
     display: -ms-flexbox;
     display: flex;
@@ -301,10 +301,10 @@ body{margin-top:20px;}
     margin: 0 0 0 15px;
 }
 
-.chat-container li .chat-hour > span {
+ .chat-container li .chat-hour > span {
     font-size: 16px;
-    color: #9ec94a;
-}
+    color: #c0235f;
+} 
 
 .chat-container li.chat-right > .chat-hour {
     margin: 0 15px 0 0;
@@ -375,3 +375,71 @@ ul {
     margin-bottom: 2rem;
     box-shadow: none;
 }
+.Chat_container_CC
+{
+    margin:15px;
+    padding:15px;
+    height: 100%;
+    background-color: brown;
+}
+
+.single_user
+{
+    width: 48px;
+    height: 48px;
+    /* -webkit-border-radius: 50px; */
+    /* -moz-border-radius: 50px; */
+    border-radius: 50px;
+    text-align: center;
+    padding: 0px;
+    display: inline-block;
+    font-size: xx-large;
+    position: relative;
+    margin-right: 10px;
+    color: red;
+    background-color: green;
+}
+@media (max-width: 767px) {
+     .single_user{
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+}
+
+.search_button
+{
+    width: 100%;
+    height: 0px;
+}
+
+.send_btn{
+    width: 50px;
+    height: auto;
+    padding: 5px;
+   
+    border-radius: 50px;
+    display: inline;
+    background-color: blue;
+    color: white;
+    margin-top: 15px;
+}
+
+.send_symbol{
+    font-size: 30px;
+    transform: scale(0.5,1);
+}
+
+.chat_my_container{
+    /* background-image: url("https://i.ibb.co/J2XcHj6/Customer-Support-Related-Seamless-Pattern-and-Background-with-Line-Icons.jpg"); */
+    background-image: url("https://i.ibb.co/QcGMBVd/11.jpg");
+    /* position:absolute; */
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+/* <a href="https://imgbb.com/">
+<img src="https://i.ibb.co/J2XcHj6/Customer-Support-Related-Seamless-Pattern-and-Background-with-Line-Icons.jpg" alt="Customer-Support-Related-Seamless-Pattern-and-Background-with-Line-Icons" border="0"></a> */
+
+
+/* <a href="https://ibb.co/cvdQ59L"><img src="https://i.ibb.co/QcGMBVd/11.jpg" alt="11" border="0"></a> */

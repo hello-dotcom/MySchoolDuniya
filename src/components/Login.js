@@ -36,6 +36,7 @@ class Login extends Component {
 						alert('Internal system error');
 					} else if (res.status === 200) {
 						alert(res.message);
+						console.log(res);
 						localStorage.setItem('token', 'Bearer ' + res.token);
 						if(localStorage.getItem('as')==='student')
 						{
@@ -48,7 +49,9 @@ class Login extends Component {
 							localStorage.setItem('role',res.output.role);
 							this.props.history.push('/home1');
 						} else if(res.output.role==='Faculty') {
-							this.props.hisotry.push('/upload');
+							localStorage.setItem('profile',JSON.stringify(res.output));
+							localStorage.setItem('role','Faculty');
+							this.props.history.push('/');
 						}
 					}
 				})

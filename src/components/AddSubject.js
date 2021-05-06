@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { API_URL } from '../config/config';
 import '../styles/addClass.css';
+import { Table } from 'react-bootstrap';
 class AddSubject extends Component {
 	constructor(props) {
 		super(props);
@@ -190,7 +191,7 @@ class AddSubject extends Component {
 						</div>
 					) : (
 						<center>
-							<table>
+							<Table striped bordered hover>
 								<thead>
 									<tr>
 										<th>Class</th>
@@ -227,7 +228,7 @@ class AddSubject extends Component {
 										);
 									})}
 								</tbody>
-							</table>
+							</Table>
 						</center>
 					)}
 				</div>

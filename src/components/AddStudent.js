@@ -54,7 +54,7 @@ class AddStudent extends Component {
 			file,
 		} = this.state;
 		const phoneregex = /^[1-9][0-9]{9}$/;
-		const emailregex = /^([a-z-9A-Z\.-]+)@([a-z0-9A-Z-]+)\.([a-z]{2,8})(.[a-z]{2,8})?$/;
+		const emailregex = /^([a-z0-9A-Z\.-]+)@([a-z0-9A-Z-]+)\.([a-z]{2,8})(.[a-z]{2,8})?$/;
 		const passwordregex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+()]).{8,20}$/;
 		if (
 			id.trim() === '' ||

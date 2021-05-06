@@ -19,6 +19,8 @@ import AdmHome from './components/AdmHome';
 import AddClass from './components/AddClass';
 import AddSubject from './components/AddSubject';
 import ProcessLeave from './components/ProcessLeave';
+import Attendance from './components/Attendance';
+import StudentAtdCheck from './components/StudentAtdCheck';
 function App() {
 	return (
 		<Router>
@@ -62,6 +64,12 @@ function App() {
 				</Route>
 				<Route exact path="/processleave" >
 					<ProcessLeave></ProcessLeave>
+				</Route>
+				<Route exact path="/attendance" >
+					<Attendance></Attendance>
+				</Route>
+				<Route exact path="/atdcheck" >
+					<StudentAtdCheck></StudentAtdCheck>
 				</Route>
 			</Switch>
 		</Router>

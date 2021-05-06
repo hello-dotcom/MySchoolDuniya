@@ -85,6 +85,12 @@ class Home extends Component {
 				>
 					Admin Home
 				</button>
+				<button
+					onClick={() => this.props.history.push('/atdcheck')}
+					className="btn btn-primary"
+				>
+					Attendance check
+				</button>
 			</div>
 		);
 	}

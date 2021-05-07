@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 class NavbarPage extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			name: '',
+		};
+	}
+
 	render() {
 		return (
 			<Navbar
@@ -99,11 +107,35 @@ class NavbarPage extends Component {
 						title="Login"
 						id="basic-nav-dropdown"
 					>
-						<NavDropdown.Item href="/login" >Student</NavDropdown.Item>
+						<NavDropdown.Item
+							href="/login"
+							onClick={() => {
+								localStorage.setItem('as', 'student');
+								this.props.history.push('/login');
+							}}
+						>
+							Student
+						</NavDropdown.Item>
 						<NavDropdown.Divider />
-						<NavDropdown.Item href="/login">Faculty</NavDropdown.Item>
+						<NavDropdown.Item
+							href="/login"
+							onClick={() => {
+								localStorage.setItem('as', 'admin');
+								this.props.history.push('/login');
+							}}
+						>
+							Faculty
+						</NavDropdown.Item>
 						<NavDropdown.Divider />
-						<NavDropdown.Item href="/login">Admin</NavDropdown.Item>
+						<NavDropdown.Item
+							href="/login"
+							onClick={() => {
+								localStorage.setItem('as', 'admin');
+								this.props.history.push('/login');
+							}}
+						>
+							Admin
+						</NavDropdown.Item>
 					</NavDropdown>
 				</Navbar.Collapse>
 			</Navbar>

@@ -148,6 +148,7 @@ class Attendance extends Component {
         })
         .catch(err=>console.log(err));
     }
+    
     render() {
         return (
             <div className="container">
@@ -191,8 +192,9 @@ class Attendance extends Component {
                             
                         </tbody>
                     </table>
-                    <div>
-                        <button onClick={()=>this.submitAttendance()}> submit</button>
+                    <div className="d-flex row justify-content-between">
+                        <button onClick={()=>this.submitAttendance()}> Submit</button>
+                        <button onClick={()=>{this.setState({...this.state,stage:"1"})}}> Back</button>
                     </div>
                 </div>}
             </div>

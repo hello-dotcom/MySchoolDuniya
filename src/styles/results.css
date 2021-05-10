@@ -1,0 +1,13 @@
+.btn-container
+{
+    width: auto;
+    background-color: blue;
+    color: white;
+}
+
+.resultsContainer
+{
+    width: auto;
+    height: auto;
+    background-color: darkgrey;
+}

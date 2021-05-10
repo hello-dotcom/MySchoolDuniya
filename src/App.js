@@ -71,6 +71,9 @@ function App() {
 				<Route exact path="/atdcheck" >
 					<StudentAtdCheck></StudentAtdCheck>
 				</Route>
+				<Route exact path="/results" >
+					<StudentAtdCheck></StudentAtdCheck>
+				</Route>
 			</Switch>
 		</Router>
 	);

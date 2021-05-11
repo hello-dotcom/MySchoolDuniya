@@ -23,6 +23,8 @@ import Attendance from './components/Attendance';
 import StudentAtdCheck from './components/StudentAtdCheck';
 import Results from './components/Results';
 import StudentResCheck from './components/StudentResCheck';
+import StdHome from './components/StdHome';
+import FacHome from './components/FacHome';
 function App() {
 	return (
 		<Router>
@@ -57,6 +59,12 @@ function App() {
 				</Route>
 				<Route exact path="/home1" component={AdmHome}>
 					<AdmHome></AdmHome>
+				</Route>
+				<Route exact path="/home2" component={StdHome}>
+					<StdHome></StdHome>
+				</Route>
+				<Route exact path="/home3" component={FacHome}>
+					<FacHome></FacHome>
 				</Route>
 				<Route exact path="/addclass" component={AddClass}>
 					<AddClass></AddClass>

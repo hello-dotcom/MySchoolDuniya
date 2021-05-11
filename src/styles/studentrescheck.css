@@ -1,10 +1,8 @@
-.studentrescheck-container
-{
-    width: auto;
-    height: auto;
-    padding: 10px;
-    background-color: darkgrey;
-    margin-top: 200px;
-    text-align: center;
-    
+.studentrescheck-container {
+  width: 98%s;
+  height: auto;
+  padding: 10px;
+  background-color: darkgrey;
+  margin-top: 15px;
+  text-align: center;
 }

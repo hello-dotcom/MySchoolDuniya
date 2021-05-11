@@ -21,6 +21,8 @@ import AddSubject from './components/AddSubject';
 import ProcessLeave from './components/ProcessLeave';
 import Attendance from './components/Attendance';
 import StudentAtdCheck from './components/StudentAtdCheck';
+import Results from './components/Results';
+import StudentResCheck from './components/StudentResCheck';
 function App() {
 	return (
 		<Router>
@@ -72,7 +74,10 @@ function App() {
 					<StudentAtdCheck></StudentAtdCheck>
 				</Route>
 				<Route exact path="/results" >
-					<StudentAtdCheck></StudentAtdCheck>
+					<Results></Results>
+				</Route>
+				<Route exact path="/stdResult" >
+					<StudentResCheck></StudentResCheck>
 				</Route>
 			</Switch>
 		</Router>

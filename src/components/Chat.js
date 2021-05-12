@@ -133,7 +133,7 @@ class Chat extends Component {
 
 	render() {
 		return (
-			<div style={{ marginTop: '100px' }}>
+			<div style={{ marginTop: '15px' }}>
 				{/* <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> */}
 				<div class="Chat_container_CC">
 					{/* <!-- Page header start --> */}

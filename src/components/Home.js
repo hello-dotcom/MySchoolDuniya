@@ -73,6 +73,13 @@ class Home extends Component {
 				>
 					Attendance check
 				</button>
+				<button
+					onClick={() => this.props.history.push('/stdResult')}
+					className="btn btn-primary"
+				>
+					Results Check
+				</button>
+				
 			</div>
 		);
 	}

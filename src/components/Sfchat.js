@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { API_URL } from '../config/config';
 import '../styles/chat.css';
-class Sschat extends Component {
+class Sfchat extends Component {
 	constructor(props) {
 		super(props);
 
@@ -10,12 +10,12 @@ class Sschat extends Component {
 			empty: '',
 			id1: JSON.parse(localStorage.getItem('profile')).id,
 			index: -1,
-			student_list: [],
+			faculty_list: [],
 			message_list: [],
 		};
 	}
-	fetchAllStudent = () => {
-		fetch(`${API_URL}/student/getAll`, {
+	fetchAllFaculty = () => {
+		fetch(`${API_URL}/admin/getAll`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ class Sschat extends Component {
 			.then((res) => {
 				if (res.status === 200) {
 					this.setState({
-						student_list: res.data,
+						faculty_list: res.data,
 					});
 				} else {
 					alert('something went wrong');
@@ -34,12 +34,12 @@ class Sschat extends Component {
 			.catch((err) => console.log(err));
 	};
 	componentDidMount() {
-		this.fetchAllStudent();
+		this.fetchAllFaculty();
 		setInterval(() => {
 			if (this.state.index !== -1) {
 				this.getChat(
 					this.state.id1,
-					this.state.student_list[this.state.index].id
+					this.state.faculty_list[this.state.index].id
 				);
 			}
 		}, 60 * 1000);
@@ -51,12 +51,12 @@ class Sschat extends Component {
 				index: index,
 			},
 			() => {
-				this.getChat(this.state.id1, this.state.student_list[index].id);
+				this.getChat(this.state.id1, this.state.faculty_list[index].id);
 			}
 		);
 	};
 	getChat = (id1, id2) => {
-		fetch(`${API_URL}/student/sschat/${id1}/${id2}`, {
+		fetch(`${API_URL}/student/sfchat/${id1}/${id2}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ class Sschat extends Component {
 		const message = document.getElementById('msgInput').value;
 		console.log(Date());
 		if (message !== '') {
-			fetch(`${API_URL}/student/sschat`, {
+			fetch(`${API_URL}/student/sfchat`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -103,7 +103,7 @@ class Sschat extends Component {
 				},
 				body: JSON.stringify({
 					id1: this.state.id1,
-					id2: this.state.student_list[this.state.index].id,
+					id2: this.state.faculty_list[this.state.index].id,
 					message: message,
 					created: Date(),
 					sender: this.state.id1,
@@ -122,7 +122,7 @@ class Sschat extends Component {
 					} else if (res.status === 200) {
 						this.getChat(
 							this.state.id1,
-							this.state.student_list[this.state.index].id
+							this.state.faculty_list[this.state.index].id
 						);
 						document.getElementById('msgInput').value = '';
 					}
@@ -193,7 +193,7 @@ class Sschat extends Component {
 													</div>
 												</div>
 												<ul class="users">
-													{this.state.student_list.map((item, index) => {
+													{this.state.faculty_list.map((item, index) => {
 														return (
 															<li
 																class="person"
@@ -223,7 +223,7 @@ class Sschat extends Component {
 														<div class="single_user">
 															<span>
 																{this.state.index !== -1
-																	? this.state.student_list[this.state.index]
+																	? this.state.faculty_list[this.state.index]
 																			.name[0]
 																	: null}
 															</span>
@@ -231,7 +231,7 @@ class Sschat extends Component {
 														<span>
 															<span class="name">
 																{this.state.index !== -1
-																	? this.state.student_list[this.state.index]
+																	? this.state.faculty_list[this.state.index]
 																			.name
 																	: null}
 															</span>
@@ -318,4 +318,4 @@ class Sschat extends Component {
 		);
 	}
 }
-export default withRouter(Sschat);
+export default withRouter(Sfchat);

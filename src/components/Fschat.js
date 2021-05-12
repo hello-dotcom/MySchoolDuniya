@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { API_URL } from '../config/config';
 import '../styles/chat.css';
-class Sschat extends Component {
+class Fschat extends Component {
 	constructor(props) {
 		super(props);
 
@@ -56,7 +56,7 @@ class Sschat extends Component {
 		);
 	};
 	getChat = (id1, id2) => {
-		fetch(`${API_URL}/student/sschat/${id1}/${id2}`, {
+		fetch(`${API_URL}/Admin/Fschat/${id1}/${id2}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ class Sschat extends Component {
 		const message = document.getElementById('msgInput').value;
 		console.log(Date());
 		if (message !== '') {
-			fetch(`${API_URL}/student/sschat`, {
+			fetch(`${API_URL}/Admin/Fschat`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -318,4 +318,4 @@ class Sschat extends Component {
 		);
 	}
 }
-export default withRouter(Sschat);
+export default withRouter(Fschat);

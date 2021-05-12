@@ -42,7 +42,7 @@ class Login extends Component {
 						{
 							localStorage.setItem('profile',JSON.stringify(res.output));
 							localStorage.setItem('role','Student');
-							this.props.history.push('/');
+							this.props.history.push('/home2');
 						}
 						else if (res.output.role==='Admin') {
 							localStorage.setItem('profile',JSON.stringify(res.output));
@@ -51,7 +51,7 @@ class Login extends Component {
 						} else if(res.output.role==='Faculty') {
 							localStorage.setItem('profile',JSON.stringify(res.output));
 							localStorage.setItem('role','Faculty');
-							this.props.history.push('/');
+							this.props.history.push('/home3');
 						}
 					}
 				})

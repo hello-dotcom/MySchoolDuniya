@@ -56,7 +56,7 @@ class Fschat extends Component {
 		);
 	};
 	getChat = (id1, id2) => {
-		fetch(`${API_URL}/Admin/Fschat/${id1}/${id2}`, {
+		fetch(`${API_URL}/student/sfchat/${id1}/${id2}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ class Fschat extends Component {
 		const message = document.getElementById('msgInput').value;
 		console.log(Date());
 		if (message !== '') {
-			fetch(`${API_URL}/Admin/Fschat`, {
+			fetch(`${API_URL}/student/sfchat`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

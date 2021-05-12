@@ -56,7 +56,7 @@ class Sfchat extends Component {
 		);
 	};
 	getChat = (id1, id2) => {
-		fetch(`${API_URL}/student/sfchat/${id1}/${id2}`, {
+		fetch(`${API_URL}/student/sfchat/${id2}/${id1}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -102,8 +102,8 @@ class Sfchat extends Component {
 					Authorization: localStorage.getItem('token'),
 				},
 				body: JSON.stringify({
-					id1: this.state.id1,
-					id2: this.state.faculty_list[this.state.index].id,
+					id2: this.state.id1,
+					id1: this.state.faculty_list[this.state.index].id,
 					message: message,
 					created: Date(),
 					sender: this.state.id1,

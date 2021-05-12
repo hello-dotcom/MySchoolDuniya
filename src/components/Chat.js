@@ -194,23 +194,24 @@ class Chat extends Component {
 												</div>
 												<ul class="users">
 													{this.state.faculty_list.map((item, index) => {
-														return (
-															<li
-																class="person"
-																data-chat="person1"
-																key={index}
-																onClick={() => this.selectId(index)}
-															>
-																<div class="single_user user">
-																	<span class="busy">{item.name[0]}</span>
-																</div>
-																<p class="name-time">
-																	<span class="name">{item.name}</span>
-																	<br></br>
-																	<span class="time">{item.id}</span>
-																</p>
-															</li>
-														);
+														if (item.id !== this.state.id1)
+															return (
+																<li
+																	class="person"
+																	data-chat="person1"
+																	key={index}
+																	onClick={() => this.selectId(index)}
+																>
+																	<div class="single_user user">
+																		<span class="busy">{item.name[0]}</span>
+																	</div>
+																	<p class="name-time">
+																		<span class="name">{item.name}</span>
+																		<br></br>
+																		<span class="time">{item.id}</span>
+																	</p>
+																</li>
+															);
 													})}
 												</ul>
 											</div>

@@ -42,7 +42,7 @@ class Sschat extends Component {
 					this.state.student_list[this.state.index].id
 				);
 			}
-		}, 60 * 1000);
+		}, 45 * 1000);
 	}
 	selectId = (index) => {
 		this.setState(
@@ -76,10 +76,15 @@ class Sschat extends Component {
 				} else if (res.status === 200) {
 					console.log(res);
 					if (res.data !== []) {
-						this.setState({
-							...this.state,
-							message_list: res.data.message,
-						});
+						this.setState(
+							{
+								...this.state,
+								message_list: res.data.message,
+							},
+							() => {
+								console.log(this.state.message_list);
+							}
+						);
 					} else {
 						alert('hello');
 						this.setState({
@@ -194,23 +199,24 @@ class Sschat extends Component {
 												</div>
 												<ul class="users">
 													{this.state.student_list.map((item, index) => {
-														return (
-															<li
-																class="person"
-																data-chat="person1"
-																key={index}
-																onClick={() => this.selectId(index)}
-															>
-																<div class="single_user user">
-																	<span class="busy">{item.name[0]}</span>
-																</div>
-																<p class="name-time">
-																	<span class="name">{item.name}</span>
-																	<br></br>
-																	<span class="time">{item.id}</span>
-																</p>
-															</li>
-														);
+														if (item.id !== this.state.id1)
+															return (
+																<li
+																	class="person"
+																	data-chat="person1"
+																	key={index}
+																	onClick={() => this.selectId(index)}
+																>
+																	<div class="single_user user">
+																		<span class="busy">{item.name[0]}</span>
+																	</div>
+																	<p class="name-time">
+																		<span class="name">{item.name}</span>
+																		<br></br>
+																		<span class="time">{item.id}</span>
+																	</p>
+																</li>
+															);
 													})}
 												</ul>
 											</div>

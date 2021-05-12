@@ -206,7 +206,7 @@ class AdmHome extends Component {
 								value="process_leave"
 								onClick={() => this.setDisplay('processleave')}
 							>
-								Process Leave 
+								Process Leave
 							</li>
 							<li
 								className="item"
@@ -313,11 +313,11 @@ class AdmHome extends Component {
 								<AddClass></AddClass>
 							) : this.state.display === 'subject' ? (
 								<AddSubject></AddSubject>
-							) : this.state.display==='processleave'?
-								<ProcessLeave></ProcessLeave> 
-							: this.state.display==="attendance"?
-							<Attendance></Attendance>:
-							null}
+							) : this.state.display === 'processleave' ? (
+								<ProcessLeave></ProcessLeave>
+							) : this.state.display === 'attendance' ? (
+								<Attendance></Attendance>
+							) : null}
 						</div>
 					</div>
 				</div>

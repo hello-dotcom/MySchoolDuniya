@@ -24,6 +24,7 @@ import Attendance from './components/Attendance';
 import StudentAtdCheck from './components/StudentAtdCheck';
 import Results from './components/Results';
 import StudentResCheck from './components/StudentResCheck';
+import ForgotPassword from './components/ForgotPassword';
 import StdHome from './components/StdHome';
 import FacHome from './components/FacHome';
 function App() {
@@ -90,6 +91,9 @@ function App() {
 				</Route>
 				<Route exact path="/stdResult">
 					<StudentResCheck></StudentResCheck>
+				</Route>
+				<Route exact path="/forgotpassword" >
+					<ForgotPassword></ForgotPassword>
 				</Route>
 			</Switch>
 		</Router>

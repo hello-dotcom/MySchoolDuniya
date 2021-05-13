@@ -98,3 +98,8 @@ span.psw {
     box-sizing: border-box;
   }
 }
+
+.forgotP{
+  color: blue;
+  cursor: pointer;
+}

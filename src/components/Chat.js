@@ -133,7 +133,7 @@ class Chat extends Component {
 
 	render() {
 		return (
-			<div style={{ marginTop: '100px' }}>
+			<div style={{ marginTop: '15px' }}>
 				{/* <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> */}
 				<div class="Chat_container_CC">
 					{/* <!-- Page header start --> */}
@@ -194,23 +194,24 @@ class Chat extends Component {
 												</div>
 												<ul class="users">
 													{this.state.faculty_list.map((item, index) => {
-														return (
-															<li
-																class="person"
-																data-chat="person1"
-																key={index}
-																onClick={() => this.selectId(index)}
-															>
-																<div class="single_user user">
-																	<span class="busy">{item.name[0]}</span>
-																</div>
-																<p class="name-time">
-																	<span class="name">{item.name}</span>
-																	<br></br>
-																	<span class="time">{item.id}</span>
-																</p>
-															</li>
-														);
+														if (item.id !== this.state.id1)
+															return (
+																<li
+																	class="person"
+																	data-chat="person1"
+																	key={index}
+																	onClick={() => this.selectId(index)}
+																>
+																	<div class="single_user user">
+																		<span class="busy">{item.name[0]}</span>
+																	</div>
+																	<p class="name-time">
+																		<span class="name">{item.name}</span>
+																		<br></br>
+																		<span class="time">{item.id}</span>
+																	</p>
+																</li>
+															);
 													})}
 												</ul>
 											</div>

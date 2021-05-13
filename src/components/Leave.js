@@ -104,7 +104,7 @@ class Leave extends Component {
 
 	render() {
 		return (
-			<div style={{ marginTop: '100px' }}>
+			<div style={{ marginTop: '15px' }}>
 				{/* <form> */}
 				<div className="container">
 					<center>

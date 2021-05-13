@@ -24,6 +24,8 @@ import StudentAtdCheck from './components/StudentAtdCheck';
 import Results from './components/Results';
 import StudentResCheck from './components/StudentResCheck';
 import ForgotPassword from './components/ForgotPassword';
+import StdHome from './components/StdHome';
+import FacHome from './components/FacHome';
 function App() {
 	return (
 		<Router>
@@ -59,25 +61,31 @@ function App() {
 				<Route exact path="/home1" component={AdmHome}>
 					<AdmHome></AdmHome>
 				</Route>
+				<Route exact path="/home2" component={StdHome}>
+					<StdHome></StdHome>
+				</Route>
+				<Route exact path="/home3" component={FacHome}>
+					<FacHome></FacHome>
+				</Route>
 				<Route exact path="/addclass" component={AddClass}>
 					<AddClass></AddClass>
 				</Route>
 				<Route exact path="/addsubject" component={AddSubject}>
 					<AddSubject></AddSubject>
 				</Route>
-				<Route exact path="/processleave" >
+				<Route exact path="/processleave">
 					<ProcessLeave></ProcessLeave>
 				</Route>
-				<Route exact path="/attendance" >
+				<Route exact path="/attendance">
 					<Attendance></Attendance>
 				</Route>
-				<Route exact path="/atdcheck" >
+				<Route exact path="/atdcheck">
 					<StudentAtdCheck></StudentAtdCheck>
 				</Route>
-				<Route exact path="/results" >
+				<Route exact path="/results">
 					<Results></Results>
 				</Route>
-				<Route exact path="/stdResult" >
+				<Route exact path="/stdResult">
 					<StudentResCheck></StudentResCheck>
 				</Route>
 				<Route exact path="/forgotpassword" >

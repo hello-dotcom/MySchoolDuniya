@@ -193,7 +193,7 @@ class Results extends Component {
         }
         console.log(marks);
         console.log(type);
-        fetch(`${API_URL}/admin/results`,{
+        fetch(`http://localhost:4000/admin/results`,{
             method:"POST",
             headers:{
                 Authorization:localStorage.getItem('token'),

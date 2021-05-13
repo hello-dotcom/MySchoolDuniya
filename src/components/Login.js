@@ -91,7 +91,7 @@ class Login extends Component {
 			    </div>
 			    <center>
 			        <div className="btncontainer">
-			        <span className="psw">Forgot <a href="/">password?</a></span>
+			        <span className="psw forgotP">Forgot <a onClick={()=>this.props.history.push('/forgotpassword')}>password?</a></span>
 			        </div>
 			    </center>
 

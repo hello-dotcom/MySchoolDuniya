@@ -1,5 +1,21 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+const dashboardCheck = () => {
+	if (localStorage.getItem('token'))
+		return (
+			<Nav.Link
+				style={{
+					padding: '0.5rem 0.5rem',
+					fontWeight: '600',
+					fontSize: '1.2rem',
+				}}
+				href="/maintainance"
+			>
+				Dashboard
+			</Nav.Link>
+		);
+};
+export { dashboardCheck };
 class NavbarPage extends Component {
 	constructor(props) {
 		super(props);
@@ -91,10 +107,11 @@ class NavbarPage extends Component {
 								fontWeight: '600',
 								fontSize: '1.2rem',
 							}}
-							href="/maintainance"
+							href="/Logout"
 						>
-							Maintainance
+							Logout
 						</Nav.Link>
+						{dashboardCheck()}
 					</Nav>
 					<NavDropdown
 						style={{

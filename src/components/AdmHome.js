@@ -10,7 +10,9 @@ import AddSubject from './AddSubject';
 import ProcessLeave from './ProcessLeave';
 import Attendance from './Attendance';
 import Results from './Results';
-
+import Fschat from './Fschat';
+import Fachat from './Fachat';
+import Chat from './Chat';
 class AdmHome extends Component {
 	constructor(props) {
 		super(props);
@@ -223,6 +225,28 @@ class AdmHome extends Component {
 							>
 								Results
 							</li>
+							<li
+								className="item"
+								value="results"
+								onClick={() => this.setDisplay('aschat')}
+							>
+								ASChat
+							</li>
+
+							<li
+								className="item"
+								value="results"
+								onClick={() => this.setDisplay('afchat')}
+							>
+								AFChat
+							</li>
+							<li
+								className="item"
+								value="results"
+								onClick={() => this.setDisplay('aachat')}
+							>
+								AAChat
+							</li>
 						</div>
 					</div>
 					<div className="col-9">
@@ -325,6 +349,12 @@ class AdmHome extends Component {
 								<ProcessLeave></ProcessLeave>
 							) : this.state.display === 'attendance' ? (
 								<Attendance></Attendance>
+							) : this.state.display === 'aschat' ? (
+								<Fschat></Fschat>
+							) : this.state.display === 'afchat' ? (
+								<Chat></Chat>
+							) : this.state.display === 'aachat' ? (
+								<Fachat></Fachat>
 							) : this.state.display === 'results' ? (
 								<Results></Results>
 							) : null}

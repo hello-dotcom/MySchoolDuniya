@@ -5,7 +5,9 @@ import '../styles/stdHome.css';
 import { API_URL } from '../config/config';
 import Chat from './Chat';
 import Fschat from './Fschat';
-import Leave from './Leave';
+import Fachat from './Fachat';
+
+import ProcessLeave from './ProcessLeave';
 
 class FacHome extends Component {
 	constructor(props) {
@@ -98,10 +100,17 @@ class FacHome extends Component {
 							</li>
 							<li
 								className="item"
-								value="apply_leave"
-								onClick={() => this.setDisplay('apply_leave')}
+								value="chat"
+								onClick={() => this.setDisplay('fachat')}
 							>
-								Apply Leave
+								FAChat
+							</li>
+							<li
+								className="item"
+								value="apply_leave"
+								onClick={() => this.setDisplay('process_leave')}
+							>
+								Process Leave
 							</li>
 						</div>
 					</div>
@@ -157,8 +166,10 @@ class FacHome extends Component {
 								<Chat></Chat>
 							) : this.state.display === 'fschat' ? (
 								<Fschat></Fschat>
-							) : this.state.display === 'apply_leave' ? (
-								<Leave></Leave>
+							) : this.state.display === 'fachat' ? (
+								<Fachat></Fachat>
+							) : this.state.display === 'process_leave' ? (
+								<ProcessLeave></ProcessLeave>
 							) : null}
 						</div>
 					</div>

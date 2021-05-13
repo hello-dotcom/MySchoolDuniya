@@ -11,7 +11,6 @@ const Maintainance = () => {
 				paddingTop: '100px',
 			}}
 		>
-			<h1>Maintainance Work Station</h1>
 			<Home></Home>
 		</div>
 	);

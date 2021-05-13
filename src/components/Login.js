@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import avatar from '../images/avatar.png';
 import '../styles/login.css';
 import { API_URL } from '../config/config';
+import dashboardCheck from './newNavbar/newnavbar';
 class Login extends Component {
 	constructor(props) {
 		super(props);
@@ -38,21 +39,22 @@ class Login extends Component {
 						alert(res.message);
 						console.log(res);
 						localStorage.setItem('token', 'Bearer ' + res.token);
-						if(localStorage.getItem('as')==='student')
-						{
-							localStorage.setItem('profile',JSON.stringify(res.output));
-							localStorage.setItem('role','Student');
+
+						if (localStorage.getItem('as') === 'student') {
+							localStorage.setItem('profile', JSON.stringify(res.output));
+							localStorage.setItem('role', 'Student');
 							this.props.history.push('/home2');
-						}
-						else if (res.output.role==='Admin') {
-							localStorage.setItem('profile',JSON.stringify(res.output));
-							localStorage.setItem('role',res.output.role);
+						} else if (res.output.role === 'Admin') {
+							localStorage.setItem('profile', JSON.stringify(res.output));
+							localStorage.setItem('role', res.output.role);
 							this.props.history.push('/home1');
-						} else if(res.output.role==='Faculty') {
-							localStorage.setItem('profile',JSON.stringify(res.output));
-							localStorage.setItem('role','Faculty');
+						} else if (res.output.role === 'Faculty') {
+							localStorage.setItem('profile', JSON.stringify(res.output));
+							localStorage.setItem('role', 'Faculty');
 							this.props.history.push('/home3');
 						}
+
+						dashboardCheck();
 					}
 				})
 				.catch((err) => console.log(err));
@@ -62,41 +64,43 @@ class Login extends Component {
 	};
 	render() {
 		return (
-
-			<div className="container" style={{width: '40%', marginLeft: '30%',marginTop:'120px'}}>
-			    <div className="imgcontainer">
-			        <img src={avatar} alt="Avatar" className="avatar" />
-			    </div>
-			    <div className="inpcontainer">
-			        <label>Username : </label>
-			        <input
-			        type="text"
-			        placeholder="Enter Username"
-			        name="username"
-			        id="id"
-			        required
-					style={{width: '100%'}}
-			        />
-			        <label>Password : </label>
-			        <input
-			        type="password"
-			        placeholder="Enter Password"
-			        name="password"
-			        id="password"
-			        required
-			        />
-			    </div>
-			    <div className="btncontainer">
-			        <button  onClick={()=>this.login()}>Login</button>
-			    </div>
-			    <center>
-			        <div className="btncontainer">
-			        <span className="psw">Forgot <a href="/">password?</a></span>
-			        </div>
-			    </center>
-
+			<div
+				className="container"
+				style={{ width: '40%', marginLeft: '30%', marginTop: '120px' }}
+			>
+				<div className="imgcontainer">
+					<img src={avatar} alt="Avatar" className="avatar" />
+				</div>
+				<div className="inpcontainer">
+					<label>Username : </label>
+					<input
+						type="text"
+						placeholder="Enter Username"
+						name="username"
+						id="id"
+						required
+						style={{ width: '100%' }}
+					/>
+					<label>Password : </label>
+					<input
+						type="password"
+						placeholder="Enter Password"
+						name="password"
+						id="password"
+						required
+					/>
+				</div>
+				<div className="btncontainer">
+					<button onClick={() => this.login()}>Login</button>
+				</div>
+				<center>
+					<div className="btncontainer">
+						<span className="psw">
+							Forgot <a href="/">password?</a>
+						</span>
+					</div>
+				</center>
 			</div>
-		
 		);
 	}
 }

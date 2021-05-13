@@ -7,6 +7,7 @@ import StudentAtdCheck from './StudentAtdCheck';
 import StudentResCheck from './StudentResCheck';
 import Sschat from './sschat';
 import Sfchat from './Sfchat';
+import Sachat from './Sachat';
 import Leave from './Leave';
 
 class StdHome extends Component {
@@ -114,6 +115,13 @@ class StdHome extends Component {
 							</li>
 							<li
 								className="item"
+								value="chat"
+								onClick={() => this.setDisplay('sachat')}
+							>
+								SAChat
+							</li>
+							<li
+								className="item"
 								value="apply_leave"
 								onClick={() => this.setDisplay('apply_leave')}
 							>
@@ -166,6 +174,9 @@ class StdHome extends Component {
 							) : this.state.display === 'chat' ? (
 								(localStorage.setItem('chatType', 'sschat'),
 								(<Sschat></Sschat>))
+							) : this.state.display === 'sachat' ? (
+								(localStorage.setItem('chatType', 'sachat'),
+								(<Sachat></Sachat>))
 							) : this.state.display === 'apply_leave' ? (
 								<Leave></Leave>
 							) : this.state.display === 'sfchat' ? (

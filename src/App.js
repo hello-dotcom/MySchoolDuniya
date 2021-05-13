@@ -10,6 +10,7 @@ import Notices from './pages/notices';
 import Maintainance from './pages/maintainance';
 import Student from './components/Student';
 import Login from './components/Login';
+import Logout from './pages/Logout';
 import Upload from './components/Upload';
 import AddStudent from './components/AddStudent';
 import AddTeacher from './components/AddTeacher';
@@ -41,6 +42,9 @@ function App() {
 				</Route>
 				<Route path="/login" component={Login}>
 					<Login></Login>
+				</Route>
+				<Route path="/Logout" component={Logout}>
+					<Logout></Logout>
 				</Route>
 				<Route path="/upload" component={Upload}>
 					<Upload></Upload>

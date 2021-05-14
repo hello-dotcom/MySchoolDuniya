@@ -29,7 +29,7 @@ class NavbarPage extends Component {
 				});
 				// console.log(`comp mounted displayVal = ${this.state.displayVal}`);
 			}
-		}, 3 * 1000);
+		}, 10);
 	}
 
 	render() {

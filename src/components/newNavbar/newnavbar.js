@@ -1,28 +1,35 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-const dashboardCheck = () => {
-	if (localStorage.getItem('token'))
-		return (
-			<Nav.Link
-				style={{
-					padding: '0.5rem 0.5rem',
-					fontWeight: '600',
-					fontSize: '1.2rem',
-				}}
-				href="/maintainance"
-			>
-				Dashboard
-			</Nav.Link>
-		);
-};
-export { dashboardCheck };
+
 class NavbarPage extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			name: '',
+			displayVal: 'none',
+			loginToggler: 'unset',
 		};
+	}
+	componentDidMount() {
+		// console.log(`comp mounted displayVal = ${this.state.displayVal}`);
+		setInterval(() => {
+			if (localStorage.getItem('token') === null) {
+				this.setState({
+					...this.state,
+					displayVal: 'none',
+					loginToggler: 'unset',
+				});
+				// console.log(`comp mounted displayVal = ${this.state.displayVal}`);
+			} else {
+				this.setState({
+					...this.state,
+					displayVal: 'unset',
+					loginToggler: 'none',
+				});
+				// console.log(`comp mounted displayVal = ${this.state.displayVal}`);
+			}
+		}, 3 * 1000);
 	}
 
 	render() {
@@ -103,6 +110,7 @@ class NavbarPage extends Component {
 						</Nav.Link>
 						<Nav.Link
 							style={{
+								display: this.state.displayVal,
 								padding: '0.5rem 0.5rem',
 								fontWeight: '600',
 								fontSize: '1.2rem',
@@ -111,10 +119,21 @@ class NavbarPage extends Component {
 						>
 							Logout
 						</Nav.Link>
-						{dashboardCheck()}
+						<Nav.Link
+							style={{
+								display: this.state.displayVal,
+								padding: '0.5rem 0.5rem',
+								fontWeight: '600',
+								fontSize: '1.2rem',
+							}}
+							href="/maintainance"
+						>
+							Dashboard
+						</Nav.Link>
 					</Nav>
 					<NavDropdown
 						style={{
+							display: this.state.loginToggler,
 							position: 'end',
 							padding: 'auto',
 							margin: 'auto',

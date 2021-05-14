@@ -1,28 +1,38 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import img1 from '../images/img1.png';
-import img2 from '../images/img2.png';
-import img4 from '../images/img4.png';
-import pp from '../images/pp.png';
+import bg from '../images/bg.png';
+import bg2 from '../images/bg2.png';
+import bg3 from '../images/bg3.png';
+import bg5 from '../images/bg5.png';
+
 const Home = () => {
 	return (
-		<div>
+		<div
+			style={{
+				backgroundColor: 'honeydew',
+				paddingBottom: '100px',
+			}}
+		>
 			<div
 				style={{
 					display: 'flex',
 					justifyContent: 'Right',
 					alignItems: 'Right',
 					paddingTop: '100px',
+					color: 'blue',
+					margin: 'auto',
 				}}
 			>
-				<h1>Welcome to School Management System</h1>
+				<center>
+					<h1>Welcome to School Management System</h1>
+				</center>
 			</div>
 			<div
 				style={{
 					margin: 'auto',
 					padding: 'auto',
 					maxWidth: '900px',
-					maxHeight: '400px',
+					maxHeight: 'auto',
 				}}
 			>
 				<Carousel>
@@ -33,7 +43,7 @@ const Home = () => {
 								width: '900px',
 							}}
 							className="d-block w-100"
-							src={img1}
+							src={bg}
 							alt="First slide"
 						/>
 						<Carousel.Caption>
@@ -48,7 +58,7 @@ const Home = () => {
 								width: '900px',
 							}}
 							className="d-block w-100"
-							src={img2}
+							src={bg2}
 							alt="Second slide"
 						/>
 						<Carousel.Caption>
@@ -63,7 +73,7 @@ const Home = () => {
 								width: '900px',
 							}}
 							className="d-block w-100"
-							src={pp}
+							src={bg3}
 							alt="Third slide"
 						/>
 						<Carousel.Caption>
@@ -80,7 +90,7 @@ const Home = () => {
 								width: '900px',
 							}}
 							className="d-block w-100"
-							src={img4}
+							src={bg5}
 							alt="Third slide"
 						/>
 						<Carousel.Caption>

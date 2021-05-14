@@ -4,6 +4,7 @@ const About = () => {
 	return (
 		<div
 			style={{
+				backgroundColor: 'honeydew',
 				display: 'flex',
 				flexDirection: 'column',
 				justifyContent: 'Right',
@@ -12,13 +13,24 @@ const About = () => {
 				paddingTop: '100px',
 			}}
 		>
-			<center>
+			<center
+				style={{
+					color: 'purple',
+					textShadow: '2px 2px 3px green',
+				}}
+			>
 				<h1>About Our Esteemed Web Portal for School ... </h1>
 			</center>
 			<p
 				style={{
 					fontSize: '1.2rem',
+					fontWeight: '600',
 					paddingLeft: '15px',
+					maxWidth: '900px',
+					border: '4px solid red',
+					borderRadius: '0px 10px 0px 10px',
+					boxShadow: '2px 2px 5px blue',
+					alignSelf: 'center',
 				}}
 			>
 				Telangana State Model School is a paradise of learning for your child,
@@ -29,7 +41,13 @@ const About = () => {
 			<p
 				style={{
 					fontSize: '1.2rem',
+					fontWeight: '600',
 					paddingLeft: '15px',
+					maxWidth: '900px',
+					border: '4px solid blue',
+					borderRadius: '0px 10px 0px 10px',
+					boxShadow: '2px 2px 5px red',
+					alignSelf: 'center',
 				}}
 			>
 				We empower each student to become courageous to live by his conviction
@@ -43,7 +61,13 @@ const About = () => {
 			<p
 				style={{
 					fontSize: '1.2rem',
+					fontWeight: '600',
 					paddingLeft: '15px',
+					maxWidth: '900px',
+					border: '4px solid red',
+					borderRadius: '0px 10px 0px 10px',
+					alignSelf: 'center',
+					boxShadow: '2px 2px 5px blue',
 				}}
 			>
 				We help children connect with their surroundings in new ways, so they

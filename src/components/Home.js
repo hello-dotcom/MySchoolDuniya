@@ -79,7 +79,6 @@ class Home extends Component {
 				>
 					Results Check
 				</button>
-				
 			</div>
 		);
 	}

@@ -6,9 +6,11 @@ const Events = () => {
 			style={{
 				display: 'flex',
 				justifyContent: 'Right',
+				backgroundColor: 'honeydew',
 				alignItems: 'Right',
 				height: '100vh',
 				paddingTop: '100px',
+				color: 'blue',
 			}}
 		>
 			<center>

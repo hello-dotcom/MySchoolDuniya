@@ -39,19 +39,21 @@ class NavbarPage extends Component {
 				style={{
 					width: '100%',
 					justifyContent: 'space-between',
-					backgroundColor: 'aqua',
+					backgroundColor: '#2180DE',
 					minHeight: '100px',
 					position: 'fixed',
 					top: 0,
 					left: 0,
 					zIndex: 12,
+					color: 'blue',
 				}}
 			>
 				<Navbar.Brand
 					style={{
 						padding: '0.5rem 0.5rem',
 						fontWeight: '600',
-						fontSize: '1.5rem',
+						color: 'honeydew',
+						fontSize: '1.7rem',
 					}}
 					href="/"
 				>
@@ -60,6 +62,7 @@ class NavbarPage extends Component {
 				<Navbar.Toggle
 					style={{
 						maxWidth: '55px',
+						color: 'white',
 						position: 'end',
 						justifyContent: 'center',
 						marginRight: '50px',
@@ -70,9 +73,10 @@ class NavbarPage extends Component {
 					<Nav className="mr-auto">
 						<Nav.Link
 							style={{
+								color: 'white',
 								padding: '0.5rem 0.5rem',
 								fontWeight: '600',
-								fontSize: '1.2rem',
+								fontSize: '1.4rem',
 							}}
 							href="/"
 						>
@@ -82,7 +86,8 @@ class NavbarPage extends Component {
 							style={{
 								padding: '0.5rem 0.5rem',
 								fontWeight: '600',
-								fontSize: '1.2rem',
+								color: 'white',
+								fontSize: '1.4rem',
 							}}
 							href="/about"
 						>
@@ -91,8 +96,9 @@ class NavbarPage extends Component {
 						<Nav.Link
 							style={{
 								padding: '0.5rem 0.5rem',
+								color: 'white',
 								fontWeight: '600',
-								fontSize: '1.2rem',
+								fontSize: '1.4rem',
 							}}
 							href="/events"
 						>
@@ -100,9 +106,10 @@ class NavbarPage extends Component {
 						</Nav.Link>
 						<Nav.Link
 							style={{
+								color: 'white',
 								padding: '0.5rem 0.5rem',
 								fontWeight: '600',
-								fontSize: '1.2rem',
+								fontSize: '1.4rem',
 							}}
 							href="/notices"
 						>
@@ -111,9 +118,10 @@ class NavbarPage extends Component {
 						<Nav.Link
 							style={{
 								display: this.state.displayVal,
+								color: 'white',
 								padding: '0.5rem 0.5rem',
 								fontWeight: '600',
-								fontSize: '1.2rem',
+								fontSize: '1.4rem',
 							}}
 							href="/Logout"
 						>
@@ -124,7 +132,8 @@ class NavbarPage extends Component {
 								display: this.state.displayVal,
 								padding: '0.5rem 0.5rem',
 								fontWeight: '600',
-								fontSize: '1.2rem',
+								color: 'white',
+								fontSize: '1.4rem',
 							}}
 							href="/maintainance"
 						>
@@ -137,13 +146,21 @@ class NavbarPage extends Component {
 							position: 'end',
 							padding: 'auto',
 							margin: 'auto',
+							color: 'blue',
+							backgroundColor: 'white',
+							borderRadius: '15px',
 							fontWeight: '600',
-							fontSize: '1.2rem',
+							fontSize: '1.4rem',
 						}}
 						title="Login"
 						id="basic-nav-dropdown"
 					>
 						<NavDropdown.Item
+							style={{
+								color: 'blue',
+								fontSize: '1.2rem',
+								fontWeight: '600',
+							}}
 							href="/login"
 							onClick={() => {
 								localStorage.setItem('as', 'student');
@@ -154,6 +171,11 @@ class NavbarPage extends Component {
 						</NavDropdown.Item>
 						<NavDropdown.Divider />
 						<NavDropdown.Item
+							style={{
+								color: 'blue',
+								fontSize: '1.2rem',
+								fontWeight: '600',
+							}}
 							href="/login"
 							onClick={() => {
 								localStorage.setItem('as', 'admin');
@@ -164,6 +186,11 @@ class NavbarPage extends Component {
 						</NavDropdown.Item>
 						<NavDropdown.Divider />
 						<NavDropdown.Item
+							style={{
+								color: 'blue',
+								fontSize: '1.2rem',
+								fontWeight: '600',
+							}}
 							href="/login"
 							onClick={() => {
 								localStorage.setItem('as', 'admin');

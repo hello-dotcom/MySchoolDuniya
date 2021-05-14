@@ -239,7 +239,12 @@ class Results extends Component {
 	};
 	render() {
 		return (
-			<div className="resultsContainer">
+			<div
+				className="resultsContainer"
+				style={{
+					marginTop: '100px',
+				}}
+			>
 				{this.state.stage === 1 ? (
 					<div>
 						{this.state.classList.map((item, index) => {

@@ -13,6 +13,7 @@ import Results from './Results';
 import Fschat from './Fschat';
 import Fachat from './Fachat';
 import Chat from './Chat';
+import { Tab, Row, Col, ListGroup } from 'react-bootstrap';
 class AdmHome extends Component {
 	constructor(props) {
 		super(props);
@@ -161,92 +162,232 @@ class AdmHome extends Component {
 			<div style={{ marginTop: '100px' }}>
 				<div className="d-flex row">
 					<div className="col-3">
-						<div className="side_nav_container">
-							<li
-								className="item"
-								value="profile"
-								onClick={() => this.setDisplay('profile')}
+						<div
+							style={{
+								backgroundColor: 'honeydew',
+								padding: '10px',
+								margin: '10px',
+							}}
+						>
+							<Tab.Container
+								id="list-group-tabs-example"
+								defaultActiveKey="#link5"
 							>
-								Profile
-							</li>
-							<li
-								className="item"
-								value="add_notice"
-								onClick={() => this.setDisplay('notice')}
-							>
-								Notice
-							</li>
-							<li
-								className="item"
-								value="add_student"
-								onClick={() => this.setDisplay('student')}
-							>
-								Student
-							</li>
-							<li
-								className="item"
-								value="add_faculty"
-								onClick={() => this.setDisplay('faculty')}
-							>
-								Faculty
-							</li>
-							<li
-								className="item"
-								value="class"
-								onClick={() => this.setDisplay('class')}
-							>
-								Class
-							</li>
-							<li
-								className="item"
-								value="add_subject"
-								onClick={() => this.setDisplay('subject')}
-							>
-								Subject
-							</li>
-							<li
-								className="item"
-								value="process_leave"
-								onClick={() => this.setDisplay('processleave')}
-							>
-								Process Leave
-							</li>
-							<li
-								className="item"
-								value="attendance"
-								onClick={() => this.setDisplay('attendance')}
-							>
-								Attendance
-							</li>
-							<li
-								className="item"
-								value="results"
-								onClick={() => this.setDisplay('results')}
-							>
-								Results
-							</li>
-							<li
-								className="item"
-								value="results"
-								onClick={() => this.setDisplay('aschat')}
-							>
-								ASChat
-							</li>
-
-							<li
-								className="item"
-								value="results"
-								onClick={() => this.setDisplay('afchat')}
-							>
-								AFChat
-							</li>
-							<li
-								className="item"
-								value="results"
-								onClick={() => this.setDisplay('aachat')}
-							>
-								AAChat
-							</li>
+								<Row>
+									<Col sm={11}>
+										<ListGroup
+											style={{
+												color: 'red',
+											}}
+										>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+													borderRadius: '5px',
+												}}
+												href="#link5"
+												onClick={() => {
+													this.setDisplay('profile');
+												}}
+											>
+												Profile
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													borderRadius: '5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#link6"
+												onClick={() => {
+													this.setDisplay('notice');
+												}}
+											>
+												Notice
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													borderRadius: '5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#link7"
+												onClick={() => {
+													this.setDisplay('student');
+												}}
+											>
+												Student
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													borderRadius: '5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#link8"
+												onClick={() => {
+													this.setDisplay('faculty');
+												}}
+											>
+												Faculty
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													borderRadius: '5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#link9"
+												onClick={() => {
+													this.setDisplay('class');
+												}}
+											>
+												Class
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													borderRadius: '5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#link10"
+												onClick={() => {
+													this.setDisplay('subject');
+												}}
+											>
+												subject
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													borderRadius: '5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#link11"
+												onClick={() => {
+													this.setDisplay('processleave');
+												}}
+											>
+												Process Leave
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													borderRadius: '5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#link12"
+												onClick={() => {
+													this.setDisplay('attendance');
+												}}
+											>
+												Attendance
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													borderRadius: '5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#link13"
+												onClick={() => {
+													this.setDisplay('results');
+												}}
+											>
+												Results
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													borderRadius: '5px',
+													color: 'red',
+													letterSpacing: '0.5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#link14"
+												onClick={() => {
+													this.setDisplay('aschat');
+												}}
+											>
+												ASChat
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													borderRadius: '5px',
+													color: 'red',
+													letterSpacing: '0.5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#link15"
+												onClick={() => {
+													this.setDisplay('afchat');
+												}}
+											>
+												AFChat
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													borderRadius: '5px',
+													color: 'red',
+													letterSpacing: '0.5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#link16"
+												onClick={() => {
+													this.setDisplay('aachat');
+												}}
+											>
+												AAChat
+											</ListGroup.Item>
+										</ListGroup>
+									</Col>
+								</Row>
+							</Tab.Container>
 						</div>
 					</div>
 					<div className="col-9">

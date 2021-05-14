@@ -92,7 +92,7 @@ function App() {
 				<Route exact path="/stdResult">
 					<StudentResCheck></StudentResCheck>
 				</Route>
-				<Route exact path="/forgotpassword" >
+				<Route exact path="/forgotpassword">
 					<ForgotPassword></ForgotPassword>
 				</Route>
 			</Switch>

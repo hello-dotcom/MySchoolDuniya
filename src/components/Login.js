@@ -43,13 +43,16 @@ class Login extends Component {
 						if (localStorage.getItem('as') === 'student') {
 							localStorage.setItem('profile', JSON.stringify(res.output));
 							localStorage.setItem('role', 'Student');
+							localStorage.setItem('dashLink', '/home2');
 							this.props.history.push('/home2');
 						} else if (res.output.role === 'Admin') {
 							localStorage.setItem('profile', JSON.stringify(res.output));
 							localStorage.setItem('role', res.output.role);
+							localStorage.setItem('dashLink', '/home1');
 							this.props.history.push('/home1');
 						} else if (res.output.role === 'Faculty') {
 							localStorage.setItem('profile', JSON.stringify(res.output));
+							localStorage.setItem('dashLink', '/home3');
 							localStorage.setItem('role', 'Faculty');
 							this.props.history.push('/home3');
 						}

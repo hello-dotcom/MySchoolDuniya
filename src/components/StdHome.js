@@ -9,6 +9,7 @@ import Sschat from './sschat';
 import Sfchat from './Sfchat';
 import Sachat from './Sachat';
 import Leave from './Leave';
+import { Tab, Row, Col, ListGroup } from 'react-bootstrap';
 
 class StdHome extends Component {
 	constructor(props) {
@@ -77,58 +78,150 @@ class StdHome extends Component {
 			<div style={{ marginTop: '100px' }}>
 				<div className="d-flex row">
 					<div className="col-3">
-						<div className="side_nav_container">
-							<li
-								className="item"
-								value="profile"
-								onClick={() => this.setDisplay('profile')}
+						<div
+							style={{
+								backgroundColor: 'honeydew',
+								padding: '10px',
+								margin: '10px',
+							}}
+						>
+							<Tab.Container
+								id="list-group-tabs-example"
+								defaultActiveKey="#profile"
 							>
-								Profile
-							</li>
-							<li
-								className="item"
-								value="check_attendance"
-								onClick={() => this.setDisplay('check_attendance')}
-							>
-								Check Attendance
-							</li>
-							<li
-								className="item"
-								value="check_results"
-								onClick={() => this.setDisplay('check_results')}
-							>
-								Check Results
-							</li>
-							<li
-								className="item"
-								value="chat"
-								onClick={() => this.setDisplay('chat')}
-							>
-								SSChat
-							</li>
-							<li
-								className="item"
-								value="chat"
-								onClick={() => this.setDisplay('sfchat')}
-							>
-								SFChat
-							</li>
-							<li
-								className="item"
-								value="chat"
-								onClick={() => this.setDisplay('sachat')}
-							>
-								SAChat
-							</li>
-							<li
-								className="item"
-								value="apply_leave"
-								onClick={() => this.setDisplay('apply_leave')}
-							>
-								Apply Leave
-							</li>
+								<Row>
+									<Col sm={11}>
+										<ListGroup
+											style={{
+												color: 'red',
+											}}
+										>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+													borderRadius: '5px',
+												}}
+												href="#profile"
+												onClick={() => {
+													this.setDisplay('profile');
+												}}
+											>
+												Profile
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													borderRadius: '5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#apply_leave"
+												onClick={() => {
+													this.setDisplay('apply_leave');
+												}}
+											>
+												Apply Leave
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													borderRadius: '5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#check_attendance"
+												onClick={() => {
+													this.setDisplay('check_attendance');
+												}}
+											>
+												Attendance
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													borderRadius: '5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#check_results"
+												onClick={() => {
+													this.setDisplay('check_results');
+												}}
+											>
+												Results
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													borderRadius: '5px',
+													color: 'red',
+													letterSpacing: '0.5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#sschat"
+												onClick={() => {
+													this.setDisplay('sschat');
+												}}
+											>
+												SSChat
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													borderRadius: '5px',
+													color: 'red',
+													letterSpacing: '0.5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#sfchat"
+												onClick={() => {
+													this.setDisplay('sfchat');
+												}}
+											>
+												SFChat
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													borderRadius: '5px',
+													color: 'red',
+													letterSpacing: '0.5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#sachat"
+												onClick={() => {
+													this.setDisplay('sachat');
+												}}
+											>
+												SAChat
+											</ListGroup.Item>
+										</ListGroup>
+									</Col>
+								</Row>
+							</Tab.Container>
 						</div>
 					</div>
+
 					<div className="col-9">
 						<div>
 							{this.state.display === 'profile' ? (
@@ -171,7 +264,7 @@ class StdHome extends Component {
 								<StudentAtdCheck></StudentAtdCheck>
 							) : this.state.display === 'check_results' ? (
 								<StudentResCheck></StudentResCheck>
-							) : this.state.display === 'chat' ? (
+							) : this.state.display === 'sschat' ? (
 								(localStorage.setItem('chatType', 'sschat'),
 								(<Sschat></Sschat>))
 							) : this.state.display === 'sachat' ? (

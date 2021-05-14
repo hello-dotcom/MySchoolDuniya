@@ -171,7 +171,7 @@ class AdmHome extends Component {
 						>
 							<Tab.Container
 								id="list-group-tabs-example"
-								defaultActiveKey="#link5"
+								defaultActiveKey="#profile"
 							>
 								<Row>
 									<Col sm={11}>
@@ -190,7 +190,7 @@ class AdmHome extends Component {
 													boxShadow: '1px 1px 2px black',
 													borderRadius: '5px',
 												}}
-												href="#link5"
+												href="#profile"
 												onClick={() => {
 													this.setDisplay('profile');
 												}}
@@ -207,7 +207,7 @@ class AdmHome extends Component {
 													fontWeight: '600',
 													boxShadow: '1px 1px 2px black',
 												}}
-												href="#link6"
+												href="#notice"
 												onClick={() => {
 													this.setDisplay('notice');
 												}}
@@ -224,7 +224,7 @@ class AdmHome extends Component {
 													fontWeight: '600',
 													boxShadow: '1px 1px 2px black',
 												}}
-												href="#link7"
+												href="#student"
 												onClick={() => {
 													this.setDisplay('student');
 												}}
@@ -241,7 +241,7 @@ class AdmHome extends Component {
 													fontWeight: '600',
 													boxShadow: '1px 1px 2px black',
 												}}
-												href="#link8"
+												href="#faculty"
 												onClick={() => {
 													this.setDisplay('faculty');
 												}}
@@ -258,7 +258,7 @@ class AdmHome extends Component {
 													fontWeight: '600',
 													boxShadow: '1px 1px 2px black',
 												}}
-												href="#link9"
+												href="#class"
 												onClick={() => {
 													this.setDisplay('class');
 												}}
@@ -275,7 +275,7 @@ class AdmHome extends Component {
 													fontWeight: '600',
 													boxShadow: '1px 1px 2px black',
 												}}
-												href="#link10"
+												href="#subject"
 												onClick={() => {
 													this.setDisplay('subject');
 												}}
@@ -292,7 +292,7 @@ class AdmHome extends Component {
 													fontWeight: '600',
 													boxShadow: '1px 1px 2px black',
 												}}
-												href="#link11"
+												href="#processleave"
 												onClick={() => {
 													this.setDisplay('processleave');
 												}}
@@ -309,7 +309,7 @@ class AdmHome extends Component {
 													fontWeight: '600',
 													boxShadow: '1px 1px 2px black',
 												}}
-												href="#link12"
+												href="#attendance"
 												onClick={() => {
 													this.setDisplay('attendance');
 												}}
@@ -326,7 +326,7 @@ class AdmHome extends Component {
 													fontWeight: '600',
 													boxShadow: '1px 1px 2px black',
 												}}
-												href="#link13"
+												href="#results"
 												onClick={() => {
 													this.setDisplay('results');
 												}}
@@ -343,7 +343,7 @@ class AdmHome extends Component {
 													fontWeight: '600',
 													boxShadow: '1px 1px 2px black',
 												}}
-												href="#link14"
+												href="#aschat"
 												onClick={() => {
 													this.setDisplay('aschat');
 												}}
@@ -360,7 +360,7 @@ class AdmHome extends Component {
 													fontWeight: '600',
 													boxShadow: '1px 1px 2px black',
 												}}
-												href="#link15"
+												href="#afchat"
 												onClick={() => {
 													this.setDisplay('afchat');
 												}}
@@ -377,7 +377,7 @@ class AdmHome extends Component {
 													fontWeight: '600',
 													boxShadow: '1px 1px 2px black',
 												}}
-												href="#link16"
+												href="#aachat"
 												onClick={() => {
 													this.setDisplay('aachat');
 												}}

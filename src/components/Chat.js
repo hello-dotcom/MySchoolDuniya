@@ -194,7 +194,10 @@ class Chat extends Component {
 												</div>
 												<ul class="users">
 													{this.state.faculty_list.map((item, index) => {
-														if (item.id !== this.state.id1)
+														if (
+															item.id !== this.state.id1 &&
+															item.role === 'Faculty'
+														)
 															return (
 																<li
 																	class="person"

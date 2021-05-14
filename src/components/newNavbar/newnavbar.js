@@ -9,6 +9,7 @@ class NavbarPage extends Component {
 			name: '',
 			displayVal: 'none',
 			loginToggler: 'unset',
+			dashLink: '/',
 		};
 	}
 	componentDidMount() {
@@ -26,6 +27,7 @@ class NavbarPage extends Component {
 					...this.state,
 					displayVal: 'unset',
 					loginToggler: 'none',
+					dashLink: localStorage.getItem('dashLink'),
 				});
 				// console.log(`comp mounted displayVal = ${this.state.displayVal}`);
 			}
@@ -39,7 +41,8 @@ class NavbarPage extends Component {
 				style={{
 					width: '100%',
 					justifyContent: 'space-between',
-					backgroundColor: '#2180DE',
+					backgroundColor: '#05F636',
+					// '#2180DE'
 					minHeight: '100px',
 					position: 'fixed',
 					top: 0,
@@ -118,15 +121,16 @@ class NavbarPage extends Component {
 						<Nav.Link
 							style={{
 								display: this.state.displayVal,
-								color: 'white',
 								padding: '0.5rem 0.5rem',
 								fontWeight: '600',
+								color: 'white',
 								fontSize: '1.4rem',
 							}}
-							href="/Logout"
+							href={this.state.dashLink}
 						>
-							Logout
+							Dashboard
 						</Nav.Link>
+
 						<Nav.Link
 							style={{
 								display: this.state.displayVal,
@@ -137,7 +141,7 @@ class NavbarPage extends Component {
 							}}
 							href="/maintainance"
 						>
-							Dashboard
+							Maintainance
 						</Nav.Link>
 					</Nav>
 					<NavDropdown
@@ -147,13 +151,15 @@ class NavbarPage extends Component {
 							padding: 'auto',
 							margin: 'auto',
 							color: 'blue',
-							backgroundColor: 'white',
+							backgroundColor: 'honeydew',
 							borderRadius: '15px',
 							fontWeight: '600',
 							fontSize: '1.4rem',
+							// paddingRight: '-100px',
+							marginRight: '-100px',
 						}}
 						title="Login"
-						id="basic-nav-dropdown"
+						// id="basic-nav-dropdown"
 					>
 						<NavDropdown.Item
 							style={{
@@ -200,6 +206,21 @@ class NavbarPage extends Component {
 							Admin
 						</NavDropdown.Item>
 					</NavDropdown>
+					<Nav className="mr-auto">
+						<Nav.Link
+							style={{
+								display: this.state.displayVal,
+								color: 'white',
+								padding: '0.5rem',
+								fontWeight: '600',
+								fontSize: '1.4rem',
+								marginRight: '-100px',
+							}}
+							href="/Logout"
+						>
+							Logout
+						</Nav.Link>
+					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
 		);

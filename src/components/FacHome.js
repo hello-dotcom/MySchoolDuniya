@@ -8,6 +8,7 @@ import Fschat from './Fschat';
 import Fachat from './Fachat';
 
 import ProcessLeave from './ProcessLeave';
+import { Tab, Row, Col, ListGroup } from 'react-bootstrap';
 
 class FacHome extends Component {
 	constructor(props) {
@@ -76,42 +77,115 @@ class FacHome extends Component {
 			<div style={{ marginTop: '100px' }}>
 				<div className="d-flex row">
 					<div className="col-3">
-						<div className="side_nav_container">
-							<li
-								className="item"
-								value="profile"
-								onClick={() => this.setDisplay('profile')}
+						<div
+							style={{
+								backgroundColor: 'honeydew',
+								padding: '10px',
+								margin: '10px',
+							}}
+						>
+							<Tab.Container
+								id="list-group-tabs-example"
+								defaultActiveKey="#profile"
 							>
-								Profile
-							</li>
-							<li
-								className="item"
-								value="chat"
-								onClick={() => this.setDisplay('chat')}
-							>
-								FFChat
-							</li>
-							<li
-								className="item"
-								value="chat"
-								onClick={() => this.setDisplay('fschat')}
-							>
-								FSChat
-							</li>
-							<li
-								className="item"
-								value="chat"
-								onClick={() => this.setDisplay('fachat')}
-							>
-								FAChat
-							</li>
-							<li
-								className="item"
-								value="apply_leave"
-								onClick={() => this.setDisplay('process_leave')}
-							>
-								Process Leave
-							</li>
+								<Row>
+									<Col sm={11}>
+										<ListGroup
+											style={{
+												color: 'red',
+											}}
+										>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+													borderRadius: '5px',
+												}}
+												href="#profile"
+												onClick={() => {
+													this.setDisplay('profile');
+												}}
+											>
+												Profile
+											</ListGroup.Item>
+
+											<ListGroup.Item
+												action
+												style={{
+													borderRadius: '5px',
+													color: 'red',
+													letterSpacing: '0.5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#ffchat"
+												onClick={() => {
+													this.setDisplay('ffchat');
+												}}
+											>
+												FFChat
+											</ListGroup.Item>
+
+											<ListGroup.Item
+												action
+												style={{
+													borderRadius: '5px',
+													color: 'red',
+													letterSpacing: '0.5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#fschat"
+												onClick={() => {
+													this.setDisplay('fschat');
+												}}
+											>
+												FSChat
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													borderRadius: '5px',
+													color: 'red',
+													letterSpacing: '0.5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#fachat"
+												onClick={() => {
+													this.setDisplay('fachat');
+												}}
+											>
+												FAChat
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													borderRadius: '5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#process_leave"
+												onClick={() => {
+													this.setDisplay('process_leave');
+												}}
+											>
+												Process Leave
+											</ListGroup.Item>
+										</ListGroup>
+									</Col>
+								</Row>
+							</Tab.Container>
 						</div>
 					</div>
 					<div className="col-9">
@@ -162,7 +236,7 @@ class FacHome extends Component {
 										<img id="profilepic" src="" alt=""></img>
 									</div>
 								</div>
-							) : this.state.display === 'chat' ? (
+							) : this.state.display === 'ffchat' ? (
 								<Chat></Chat>
 							) : this.state.display === 'fschat' ? (
 								<Fschat></Fschat>

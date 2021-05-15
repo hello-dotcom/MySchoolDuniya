@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { API_URL } from '../config/config';
 import '../styles/chat.css';
+var _Admin_list = [];
+var search = '';
 class Sachat extends Component {
 	constructor(props) {
 		super(props);
@@ -10,9 +12,11 @@ class Sachat extends Component {
 			empty: '',
 			id1: JSON.parse(localStorage.getItem('profile')).id,
 			index: -1,
+			searchString: '',
 			Admin_list: [],
 			message_list: [],
 		};
+		this.handleChange = this.handleChange.bind(this);
 	}
 	fetchAllAdmin = () => {
 		fetch(`${API_URL}/admin/getAll`, {
@@ -35,14 +39,18 @@ class Sachat extends Component {
 	};
 	componentDidMount() {
 		this.fetchAllAdmin();
+		this.refs.search.focus();
+
 		setInterval(() => {
 			if (this.state.index !== -1) {
-				this.getChat(
-					this.state.id1,
-					this.state.Admin_list[this.state.index].id
-				);
+				this.getChat(this.state.id1, _Admin_list[this.state.index].id);
 			}
-		}, 60 * 1000);
+		}, 10 * 1000);
+	}
+	handleChange() {
+		this.setState({
+			searchString: this.refs.search.value,
+		});
 	}
 	selectId = (index) => {
 		this.setState(
@@ -51,7 +59,7 @@ class Sachat extends Component {
 				index: index,
 			},
 			() => {
-				this.getChat(this.state.id1, this.state.Admin_list[index].id);
+				this.getChat(this.state.id1, _Admin_list[index].id);
 			}
 		);
 	};
@@ -120,10 +128,7 @@ class Sachat extends Component {
 					} else if (res.status === 400) {
 						alert(res.message);
 					} else if (res.status === 200) {
-						this.getChat(
-							this.state.id1,
-							this.state.Admin_list[this.state.index].id
-						);
+						this.getChat(this.state.id1, _Admin_list[this.state.index].id);
 						document.getElementById('msgInput').value = '';
 					}
 				})
@@ -132,6 +137,14 @@ class Sachat extends Component {
 	};
 
 	render() {
+		_Admin_list = this.state.Admin_list;
+		search = this.state.searchString.trim().toLowerCase();
+
+		if (search.length > 0) {
+			_Admin_list = _Admin_list.filter(function (user) {
+				return user.name.toLowerCase().match(search);
+			});
+		}
 		return (
 			<div style={{ marginTop: '15px' }}>
 				{/* <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> */}
@@ -180,7 +193,14 @@ class Sachat extends Component {
 											<div class="users-container ">
 												<div class="chat-search-box">
 													<div class="input-group">
-														<input class="form-control" placeholder="Search" />
+														<input
+															type="text"
+															value={this.state.searchString}
+															ref="search"
+															onChange={this.handleChange}
+															placeholder="type name"
+														/>
+														{/* <input class="form-control" placeholder="Search" />
 														<div class="input-group-btn">
 															<button
 																type="button"
@@ -189,29 +209,32 @@ class Sachat extends Component {
 															>
 																&#128269;
 															</button>
-														</div>
+														</div> */}
 													</div>
 												</div>
 												<ul class="users">
-													{this.state.Admin_list.map((item, index) => {
-                                                        if(item.id!==this.state.id1 && item.role === `Admin`)
-														return (
-															<li
-																class="person"
-																data-chat="person1"
-																key={index}
-																onClick={() => this.selectId(index)}
-															>
-																<div class="single_user user">
-																	<span class="busy">{item.name[0]}</span>
-																</div>
-																<p class="name-time">
-																	<span class="name">{item.name}</span>
-																	<br></br>
-																	<span class="time">{item.id}</span>
-																</p>
-															</li>
-														);
+													{_Admin_list.map((item, index) => {
+														if (
+															item.id !== this.state.id1 &&
+															item.role === `Admin`
+														)
+															return (
+																<li
+																	class="person"
+																	data-chat="person1"
+																	key={index}
+																	onClick={() => this.selectId(index)}
+																>
+																	<div class="single_user user">
+																		<span class="busy">{item.name[0]}</span>
+																	</div>
+																	<p class="name-time">
+																		<span class="name">{item.name}</span>
+																		<br></br>
+																		<span class="time">{item.id}</span>
+																	</p>
+																</li>
+															);
 													})}
 												</ul>
 											</div>
@@ -224,16 +247,14 @@ class Sachat extends Component {
 														<div class="single_user">
 															<span>
 																{this.state.index !== -1
-																	? this.state.Admin_list[this.state.index]
-																			.name[0]
+																	? _Admin_list[this.state.index].name[0]
 																	: null}
 															</span>
 														</div>
 														<span>
 															<span class="name">
 																{this.state.index !== -1
-																	? this.state.Admin_list[this.state.index]
-																			.name
+																	? _Admin_list[this.state.index].name
 																	: null}
 															</span>
 														</span>

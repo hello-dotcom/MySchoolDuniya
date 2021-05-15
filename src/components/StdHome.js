@@ -5,9 +5,7 @@ import '../styles/stdHome.css';
 import { API_URL } from '../config/config';
 import StudentAtdCheck from './StudentAtdCheck';
 import StudentResCheck from './StudentResCheck';
-import Sschat from './sschat';
-import Sfchat from './Sfchat';
-import Sachat from './Sachat';
+import NewChat3 from './NewChat3';
 import Leave from './Leave';
 import { Tab, Row, Col, ListGroup } from 'react-bootstrap';
 
@@ -176,44 +174,10 @@ class StdHome extends Component {
 												}}
 												href="#sschat"
 												onClick={() => {
-													this.setDisplay('sschat');
+													this.setDisplay('chat');
 												}}
 											>
-												SSChat
-											</ListGroup.Item>
-											<ListGroup.Item
-												action
-												style={{
-													borderRadius: '5px',
-													color: 'red',
-													letterSpacing: '0.5px',
-													fontSize: '1.4rem',
-													fontWeight: '600',
-													boxShadow: '1px 1px 2px black',
-												}}
-												href="#sfchat"
-												onClick={() => {
-													this.setDisplay('sfchat');
-												}}
-											>
-												SFChat
-											</ListGroup.Item>
-											<ListGroup.Item
-												action
-												style={{
-													borderRadius: '5px',
-													color: 'red',
-													letterSpacing: '0.5px',
-													fontSize: '1.4rem',
-													fontWeight: '600',
-													boxShadow: '1px 1px 2px black',
-												}}
-												href="#sachat"
-												onClick={() => {
-													this.setDisplay('sachat');
-												}}
-											>
-												SAChat
+												Chat
 											</ListGroup.Item>
 										</ListGroup>
 									</Col>
@@ -222,7 +186,7 @@ class StdHome extends Component {
 						</div>
 					</div>
 
-					<div className="col-9">
+					<div className="col-8">
 						<div>
 							{this.state.display === 'profile' ? (
 								<div className="profileContainer row ">
@@ -264,17 +228,10 @@ class StdHome extends Component {
 								<StudentAtdCheck></StudentAtdCheck>
 							) : this.state.display === 'check_results' ? (
 								<StudentResCheck></StudentResCheck>
-							) : this.state.display === 'sschat' ? (
-								(localStorage.setItem('chatType', 'sschat'),
-								(<Sschat></Sschat>))
-							) : this.state.display === 'sachat' ? (
-								(localStorage.setItem('chatType', 'sachat'),
-								(<Sachat></Sachat>))
+							) : this.state.display === 'chat' ? (
+								<NewChat3></NewChat3>
 							) : this.state.display === 'apply_leave' ? (
 								<Leave></Leave>
-							) : this.state.display === 'sfchat' ? (
-								(localStorage.setItem('chatType', 'sfchat'),
-								(<Sfchat></Sfchat>))
 							) : null}
 						</div>
 					</div>

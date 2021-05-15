@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { API_URL } from '../config/config';
 import '../styles/chat.css';
+var _student_list = [];
+var search = '';
 class Sschat extends Component {
 	constructor(props) {
 		super(props);
@@ -12,7 +14,9 @@ class Sschat extends Component {
 			index: -1,
 			student_list: [],
 			message_list: [],
+			searchString: '',
 		};
+		this.handleChange = this.handleChange.bind(this);
 	}
 	fetchAllStudent = () => {
 		fetch(`${API_URL}/student/getAll`, {
@@ -35,15 +39,21 @@ class Sschat extends Component {
 	};
 	componentDidMount() {
 		this.fetchAllStudent();
+		this.refs.search.focus();
+
 		setInterval(() => {
 			if (this.state.index !== -1) {
-				this.getChat(
-					this.state.id1,
-					this.state.student_list[this.state.index].id
-				);
+				this.getChat(this.state.id1, _student_list[this.state.index].id);
 			}
 		}, 45 * 1000);
 	}
+
+	handleChange() {
+		this.setState({
+			searchString: this.refs.search.value,
+		});
+	}
+
 	selectId = (index) => {
 		this.setState(
 			{
@@ -51,7 +61,8 @@ class Sschat extends Component {
 				index: index,
 			},
 			() => {
-				this.getChat(this.state.id1, this.state.student_list[index].id);
+				console.log(`selctdid`);
+				this.getChat(this.state.id1, _student_list[index].id);
 			}
 		);
 	};
@@ -125,10 +136,7 @@ class Sschat extends Component {
 					} else if (res.status === 400) {
 						alert(res.message);
 					} else if (res.status === 200) {
-						this.getChat(
-							this.state.id1,
-							this.state.student_list[this.state.index].id
-						);
+						this.getChat(this.state.id1, _student_list[this.state.index].id);
 						document.getElementById('msgInput').value = '';
 					}
 				})
@@ -137,6 +145,15 @@ class Sschat extends Component {
 	};
 
 	render() {
+		_student_list = this.state.student_list;
+		search = this.state.searchString.trim().toLowerCase();
+
+		if (search.length > 0) {
+			_student_list = _student_list.filter(function (user) {
+				return user.name.toLowerCase().match(search);
+			});
+		}
+
 		return (
 			<div style={{ marginTop: '15px' }}>
 				{/* <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> */}
@@ -184,9 +201,17 @@ class Sschat extends Component {
 										<div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
 											<div class="users-container ">
 												<div class="chat-search-box">
+													{/* <Search></Search> */}
 													<div class="input-group">
-														<input class="form-control" placeholder="Search" />
-														<div class="input-group-btn">
+														<input
+															type="text"
+															value={this.state.searchString}
+															ref="search"
+															onChange={this.handleChange}
+															placeholder="type name"
+														/>
+														{/* <input class="form-control" placeholder="Search" /> */}
+														{/* <div class="input-group-btn">
 															<button
 																type="button"
 																class="btn btn-info"
@@ -194,11 +219,11 @@ class Sschat extends Component {
 															>
 																&#128269;
 															</button>
-														</div>
+														</div> */}
 													</div>
 												</div>
 												<ul class="users">
-													{this.state.student_list.map((item, index) => {
+													{_student_list.map((item, index) => {
 														if (item.id !== this.state.id1)
 															return (
 																<li

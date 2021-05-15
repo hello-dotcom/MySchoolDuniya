@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { API_URL } from '../config/config';
 import '../styles/chat.css';
+var _student_list = [];
+var search = '';
 class Fschat extends Component {
 	constructor(props) {
 		super(props);
@@ -10,9 +12,12 @@ class Fschat extends Component {
 			empty: '',
 			id1: JSON.parse(localStorage.getItem('profile')).id,
 			index: -1,
+			searchString: '',
+
 			student_list: [],
 			message_list: [],
 		};
+		this.handleChange = this.handleChange.bind(this);
 	}
 	fetchAllStudent = () => {
 		fetch(`${API_URL}/student/getAll`, {
@@ -35,14 +40,18 @@ class Fschat extends Component {
 	};
 	componentDidMount() {
 		this.fetchAllStudent();
+		this.refs.search.focus();
+
 		setInterval(() => {
 			if (this.state.index !== -1) {
-				this.getChat(
-					this.state.id1,
-					this.state.student_list[this.state.index].id
-				);
+				this.getChat(this.state.id1, _student_list[this.state.index].id);
 			}
-		}, 60 * 1000);
+		}, 10 * 1000);
+	}
+	handleChange() {
+		this.setState({
+			searchString: this.refs.search.value,
+		});
 	}
 	selectId = (index) => {
 		this.setState(
@@ -51,7 +60,7 @@ class Fschat extends Component {
 				index: index,
 			},
 			() => {
-				this.getChat(this.state.id1, this.state.student_list[index].id);
+				this.getChat(this.state.id1, _student_list[index].id);
 			}
 		);
 	};
@@ -120,10 +129,7 @@ class Fschat extends Component {
 					} else if (res.status === 400) {
 						alert(res.message);
 					} else if (res.status === 200) {
-						this.getChat(
-							this.state.id1,
-							this.state.student_list[this.state.index].id
-						);
+						this.getChat(this.state.id1, _student_list[this.state.index].id);
 						document.getElementById('msgInput').value = '';
 					}
 				})
@@ -132,6 +138,14 @@ class Fschat extends Component {
 	};
 
 	render() {
+		_student_list = this.state.student_list;
+		search = this.state.searchString.trim().toLowerCase();
+
+		if (search.length > 0) {
+			_student_list = _student_list.filter(function (user) {
+				return user.name.toLowerCase().match(search);
+			});
+		}
 		return (
 			<div style={{ marginTop: '15px' }}>
 				{/* <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> */}
@@ -180,7 +194,14 @@ class Fschat extends Component {
 											<div class="users-container ">
 												<div class="chat-search-box">
 													<div class="input-group">
-														<input class="form-control" placeholder="Search" />
+														<input
+															type="text"
+															value={this.state.searchString}
+															ref="search"
+															onChange={this.handleChange}
+															placeholder="type name"
+														/>
+														{/* <input class="form-control" placeholder="Search" />
 														<div class="input-group-btn">
 															<button
 																type="button"
@@ -189,11 +210,11 @@ class Fschat extends Component {
 															>
 																&#128269;
 															</button>
-														</div>
+														</div> */}
 													</div>
 												</div>
 												<ul class="users">
-													{this.state.student_list.map((item, index) => {
+													{_student_list.map((item, index) => {
 														return (
 															<li
 																class="person"
@@ -223,16 +244,14 @@ class Fschat extends Component {
 														<div class="single_user">
 															<span>
 																{this.state.index !== -1
-																	? this.state.student_list[this.state.index]
-																			.name[0]
+																	? _student_list[this.state.index].name[0]
 																	: null}
 															</span>
 														</div>
 														<span>
 															<span class="name">
 																{this.state.index !== -1
-																	? this.state.student_list[this.state.index]
-																			.name
+																	? _student_list[this.state.index].name
 																	: null}
 															</span>
 														</span>

@@ -46,10 +46,6 @@ class StudentAtdCheck extends Component {
 	render() {
 		return (
 			<div>
-				<h1>hello</h1>
-				<h1>hello</h1>
-				<h1>hello</h1>
-				<h1>hello</h1>
 				{localStorage.getItem('role') === 'Student' ? (
 					<div className="container">
 						<Table striped bordered hover>

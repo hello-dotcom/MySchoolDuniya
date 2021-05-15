@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { API_URL } from '../config/config';
 import '../styles/chat.css';
+var _faculty_list = [];
+var search = '';
 class Fachat extends Component {
 	constructor(props) {
 		super(props);
@@ -10,11 +12,14 @@ class Fachat extends Component {
 			empty: '',
 			id1: JSON.parse(localStorage.getItem('profile')).id,
 			index: -1,
-			Admin_list: [],
+			faculty_list: [],
+			searchString: '',
 			message_list: [],
 		};
+		this.handleChange = this.handleChange.bind(this);
 	}
-	fetchAllAdmin = () => {
+
+	fetchAllFaculty = () => {
 		fetch(`${API_URL}/admin/getAll`, {
 			method: 'GET',
 			headers: {
@@ -25,24 +30,28 @@ class Fachat extends Component {
 			.then((res) => {
 				if (res.status === 200) {
 					this.setState({
-						Admin_list: res.data,
+						faculty_list: res.data,
 					});
 				} else {
-					alert('some this went wrong');
+					alert('something went wrong');
 				}
 			})
 			.catch((err) => console.log(err));
 	};
 	componentDidMount() {
-		this.fetchAllAdmin();
+		this.fetchAllFaculty();
+		this.refs.search.focus();
+
 		setInterval(() => {
 			if (this.state.index !== -1) {
-				this.getChat(
-					this.state.id1,
-					this.state.Admin_list[this.state.index].id
-				);
+				this.getChat(this.state.id1, _faculty_list[this.state.index].id);
 			}
-		}, 60 * 1000);
+		}, 10 * 1000);
+	}
+	handleChange() {
+		this.setState({
+			searchString: this.refs.search.value,
+		});
 	}
 	selectId = (index) => {
 		this.setState(
@@ -51,7 +60,7 @@ class Fachat extends Component {
 				index: index,
 			},
 			() => {
-				this.getChat(this.state.id1, this.state.Admin_list[index].id);
+				this.getChat(this.state.id1, _faculty_list[index].id);
 			}
 		);
 	};
@@ -102,8 +111,8 @@ class Fachat extends Component {
 					Authorization: localStorage.getItem('token'),
 				},
 				body: JSON.stringify({
-					id1: this.state.id1,
-					id2: this.state.Admin_list[this.state.index].id,
+					id2: this.state.id1,
+					id1: this.state.faculty_list[this.state.index].id,
 					message: message,
 					created: Date(),
 					sender: this.state.id1,
@@ -120,10 +129,7 @@ class Fachat extends Component {
 					} else if (res.status === 400) {
 						alert(res.message);
 					} else if (res.status === 200) {
-						this.getChat(
-							this.state.id1,
-							this.state.Admin_list[this.state.index].id
-						);
+						this.getChat(this.state.id1, _faculty_list[this.state.index].id);
 						document.getElementById('msgInput').value = '';
 					}
 				})
@@ -132,6 +138,14 @@ class Fachat extends Component {
 	};
 
 	render() {
+		_faculty_list = this.state.faculty_list;
+		search = this.state.searchString.trim().toLowerCase();
+
+		if (search.length > 0) {
+			_faculty_list = _faculty_list.filter(function (user) {
+				return user.name.toLowerCase().match(search);
+			});
+		}
 		return (
 			<div style={{ marginTop: '15px' }}>
 				{/* <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> */}
@@ -180,7 +194,14 @@ class Fachat extends Component {
 											<div class="users-container ">
 												<div class="chat-search-box">
 													<div class="input-group">
-														<input class="form-control" placeholder="Search" />
+														<input
+															type="text"
+															value={this.state.searchString}
+															ref="search"
+															onChange={this.handleChange}
+															placeholder="type name"
+														/>
+														{/* <input class="form-control" placeholder="Search" />
 														<div class="input-group-btn">
 															<button
 																type="button"
@@ -189,14 +210,14 @@ class Fachat extends Component {
 															>
 																&#128269;
 															</button>
-														</div>
+														</div> */}
 													</div>
 												</div>
 												<ul class="users">
-													{this.state.Admin_list.map((item, index) => {
+													{_faculty_list.map((item, index) => {
 														if (
-															item.id !== this.state.id1 &&
-															item.role === `Admin`
+															item.role === 'Admin' &&
+															item.id !== this.state.id1
 														)
 															return (
 																<li
@@ -227,15 +248,14 @@ class Fachat extends Component {
 														<div class="single_user">
 															<span>
 																{this.state.index !== -1
-																	? this.state.Admin_list[this.state.index]
-																			.name[0]
+																	? _faculty_list[this.state.index].name[0]
 																	: null}
 															</span>
 														</div>
 														<span>
 															<span class="name">
 																{this.state.index !== -1
-																	? this.state.Admin_list[this.state.index].name
+																	? _faculty_list[this.state.index].name
 																	: null}
 															</span>
 														</span>

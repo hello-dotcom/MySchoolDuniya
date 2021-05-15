@@ -10,14 +10,11 @@ import AddSubject from './AddSubject';
 import ProcessLeave from './ProcessLeave';
 import Attendance from './Attendance';
 import Results from './Results';
-import Fschat from './Fschat';
-import Fachat from './Fachat';
-import Chat from './Chat';
+import NewChat from './NewChat';
 import { Tab, Row, Col, ListGroup } from 'react-bootstrap';
 class AdmHome extends Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			display: '',
 			load_file: 0,
@@ -343,46 +340,12 @@ class AdmHome extends Component {
 													fontWeight: '600',
 													boxShadow: '1px 1px 2px black',
 												}}
-												href="#aschat"
+												href="#chat"
 												onClick={() => {
-													this.setDisplay('aschat');
+													this.setDisplay('chat');
 												}}
 											>
-												ASChat
-											</ListGroup.Item>
-											<ListGroup.Item
-												action
-												style={{
-													borderRadius: '5px',
-													color: 'red',
-													letterSpacing: '0.5px',
-													fontSize: '1.4rem',
-													fontWeight: '600',
-													boxShadow: '1px 1px 2px black',
-												}}
-												href="#afchat"
-												onClick={() => {
-													this.setDisplay('afchat');
-												}}
-											>
-												AFChat
-											</ListGroup.Item>
-											<ListGroup.Item
-												action
-												style={{
-													borderRadius: '5px',
-													color: 'red',
-													letterSpacing: '0.5px',
-													fontSize: '1.4rem',
-													fontWeight: '600',
-													boxShadow: '1px 1px 2px black',
-												}}
-												href="#aachat"
-												onClick={() => {
-													this.setDisplay('aachat');
-												}}
-											>
-												AAChat
+												Chat
 											</ListGroup.Item>
 										</ListGroup>
 									</Col>
@@ -490,12 +453,8 @@ class AdmHome extends Component {
 								<ProcessLeave></ProcessLeave>
 							) : this.state.display === 'attendance' ? (
 								<Attendance></Attendance>
-							) : this.state.display === 'aschat' ? (
-								<Fschat></Fschat>
-							) : this.state.display === 'afchat' ? (
-								<Chat></Chat>
-							) : this.state.display === 'aachat' ? (
-								<Fachat></Fachat>
+							) : this.state.display === 'chat' ? (
+								<NewChat></NewChat>
 							) : this.state.display === 'results' ? (
 								<Results></Results>
 							) : null}

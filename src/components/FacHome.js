@@ -3,10 +3,7 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/stdHome.css';
 import { API_URL } from '../config/config';
-import Chat from './Chat';
-import Fschat from './Fschat';
-import Fachat from './Fachat';
-
+import NewChat2 from './NewChat2';
 import ProcessLeave from './ProcessLeave';
 import { Tab, Row, Col, ListGroup } from 'react-bootstrap';
 
@@ -125,45 +122,10 @@ class FacHome extends Component {
 												}}
 												href="#ffchat"
 												onClick={() => {
-													this.setDisplay('ffchat');
+													this.setDisplay('chat');
 												}}
 											>
-												FFChat
-											</ListGroup.Item>
-
-											<ListGroup.Item
-												action
-												style={{
-													borderRadius: '5px',
-													color: 'red',
-													letterSpacing: '0.5px',
-													fontSize: '1.4rem',
-													fontWeight: '600',
-													boxShadow: '1px 1px 2px black',
-												}}
-												href="#fschat"
-												onClick={() => {
-													this.setDisplay('fschat');
-												}}
-											>
-												FSChat
-											</ListGroup.Item>
-											<ListGroup.Item
-												action
-												style={{
-													borderRadius: '5px',
-													color: 'red',
-													letterSpacing: '0.5px',
-													fontSize: '1.4rem',
-													fontWeight: '600',
-													boxShadow: '1px 1px 2px black',
-												}}
-												href="#fachat"
-												onClick={() => {
-													this.setDisplay('fachat');
-												}}
-											>
-												FAChat
+												Chat
 											</ListGroup.Item>
 											<ListGroup.Item
 												action
@@ -236,12 +198,8 @@ class FacHome extends Component {
 										<img id="profilepic" src="" alt=""></img>
 									</div>
 								</div>
-							) : this.state.display === 'ffchat' ? (
-								<Chat></Chat>
-							) : this.state.display === 'fschat' ? (
-								<Fschat></Fschat>
-							) : this.state.display === 'fachat' ? (
-								<Fachat></Fachat>
+							) : this.state.display === 'chat' ? (
+								<NewChat2></NewChat2>
 							) : this.state.display === 'process_leave' ? (
 								<ProcessLeave></ProcessLeave>
 							) : null}

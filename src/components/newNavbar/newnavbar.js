@@ -131,7 +131,7 @@ class NavbarPage extends Component {
 							Dashboard
 						</Nav.Link>
 
-						<Nav.Link
+						{/* <Nav.Link
 							style={{
 								display: this.state.displayVal,
 								padding: '0.5rem 0.5rem',
@@ -142,7 +142,7 @@ class NavbarPage extends Component {
 							href="/maintainance"
 						>
 							Maintainance
-						</Nav.Link>
+						</Nav.Link> */}
 					</Nav>
 					<NavDropdown
 						style={{

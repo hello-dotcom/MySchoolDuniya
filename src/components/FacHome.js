@@ -5,6 +5,8 @@ import '../styles/stdHome.css';
 import { API_URL } from '../config/config';
 import NewChat2 from './NewChat2';
 import ProcessLeave from './ProcessLeave';
+import Attendance from './Attendance';
+import Results from './Results';
 import { Tab, Row, Col, ListGroup } from 'react-bootstrap';
 
 class FacHome extends Component {
@@ -144,6 +146,40 @@ class FacHome extends Component {
 											>
 												Process Leave
 											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													borderRadius: '5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#Attendance"
+												onClick={() => {
+													this.setDisplay('attendance');
+												}}
+											>
+												Attendance
+											</ListGroup.Item>
+											<ListGroup.Item
+												action
+												style={{
+													color: 'red',
+													letterSpacing: '0.5px',
+													borderRadius: '5px',
+													fontSize: '1.4rem',
+													fontWeight: '600',
+													boxShadow: '1px 1px 2px black',
+												}}
+												href="#results"
+												onClick={() => {
+													this.setDisplay('results');
+												}}
+											>
+												Results
+											</ListGroup.Item>
 										</ListGroup>
 									</Col>
 								</Row>
@@ -202,6 +238,10 @@ class FacHome extends Component {
 								<NewChat2></NewChat2>
 							) : this.state.display === 'process_leave' ? (
 								<ProcessLeave></ProcessLeave>
+							) :  this.state.display === 'attendance' ? (
+								<Attendance></Attendance>
+							) : this.state.display === 'results' ? (
+								<Results></Results>
 							) : null}
 						</div>
 					</div>

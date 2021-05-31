@@ -13,7 +13,7 @@ class Login extends Component {
 		};
 	}
 	login = () => {
-		alert('hello');
+		// alert('hello');
 		let id = document.getElementById('id').value.trim();
 		let password = document.getElementById('password').value.trim();
 		if (id !== '' && password !== '') {
